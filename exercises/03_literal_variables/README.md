@@ -13,8 +13,8 @@ The syntax for a meta-variable is simple. To explain the syntax, see the
 example below:
 
 ``` rust
-macro_rules! print_me {
-    ($metavar:literal) => {
+macro_rules! do_thing {
+    (print $metavar:literal) => {
         println!("{}", $metavar)
     };
 }
@@ -25,8 +25,37 @@ The `$metavar:literal` is saying that you're capturing any `literal`
 `metavar`. Then, `$metavar` inside the `println!` is saying to "fill in"
 that space with whatever `metavar` is.
 
+For an invocation like:
 
-## A note on these exercises
+``` rust
+do_thing!(print 3);
+```
+
+Rust understands that `metavar` means `3`. So, when doing substitution,
+it starts by writing:
+
+``` rust
+println!("{}", $metavar);
+```
+
+And then substitutes `3` for `$metavar`
+
+``` rust
+println!("{}", 3);
+```
+
+## But what about types?
+
+You might be wondering why we haven't said anything about the *type* of the
+literal. It turns out, the type doesn't matter during macro expansion. Rather
+than needing the type, rust just needs to know what sort of syntax to expect. If
+you tried to provide a variable name, and you needed a literal, Rust will throw
+an error. If you needed a *string* literal, and you provided a *char* literal,
+then rust will happily expand the code. It'll throw an error later on in the
+compilation process, just like if you had written the expanded code.
+
+
+## A note on MacroKata avoiding using Built-In Macros
 
 The example above uses the `println!` macro inside the `print_me`
 macro. Rust is totally fine with this! However, `macrokata` tries 
@@ -51,5 +80,5 @@ is much easier to read than:
     };
 
 ```
-`
+
 
