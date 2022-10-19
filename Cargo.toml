@@ -9,13 +9,21 @@ name = "macrokata"
 path = "src/main.rs"
 
 [[bin]]
-name = "01"
+name = "01_my_first_macro"
 path = "exercises/01_my_first_macro/main.rs"
 
 [[bin]]
-name = "01_soln"
+name = "01_my_first_macro_soln"
 path = "exercises/01_my_first_macro/solutions/main.rs"
 
+
+[[bin]]
+name = "02_numbers"
+path = "exercises/02_numbers/main.rs"
+
+[[bin]]
+name = "02_numbers_soln"
+path = "exercises/02_numbers/solutions/main.rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]

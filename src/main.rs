@@ -20,29 +20,29 @@ struct Args {
     command: SubCommands,
 }
 
-fn run(_exercise: String) -> Result<(), Box<dyn Error>> {
+fn run(exercise: String) -> Result<(), Box<dyn Error>> {
     println!("This is the expansion you produced, along with any errors");
-    println!("");
+    println!();
 
     Command::new("cargo")
                     .arg("expand")
                     .arg("--bin")
-                    .arg("01")
+                    .arg(&exercise)
                     .arg("main")
                     .spawn()
                     .unwrap()
                     .wait()
                     .unwrap();
 
-    println!("");
+    println!();
     println!("The expansion we expected is:");
-    println!("");
+    println!();
 
 
     Command::new("cargo")
                     .arg("expand")
                     .arg("--bin")
-                    .arg("01_soln")
+                    .arg(format!("{exercise}_soln"))
                     .arg("main")
                     .stderr(Stdio::null())
                     .spawn()
@@ -50,8 +50,6 @@ fn run(_exercise: String) -> Result<(), Box<dyn Error>> {
                     .wait()
                     .unwrap();
 
-    // expand
-    //
     Ok(())
 }
 

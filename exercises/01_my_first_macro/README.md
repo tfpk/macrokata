@@ -42,7 +42,7 @@ The simplest form of macro looks like this:
 ``` rust
 macro_rules! my_macro {
     () => {
-        my_code();
+        3
     }
 }
 ```
@@ -52,7 +52,7 @@ It is followed by the name of the macro, `my_macro`.
 The next line lets you specify variables for your macro, but for now we'll ignore it.
 Any code inside the curly brackets is what Rust will replace `my_macro!()` with.
 
-So, `my_macro!()` will be replaced by `my_code();`
+So, `my_macro!()` will be replaced by `3`
 
 ## See it for yourself
 
