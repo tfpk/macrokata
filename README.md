@@ -24,6 +24,12 @@ expanded macros.
 $ rustup toolchain install nightly
 ```
 
+And install cargo expand.
+
+``` sh
+$ cargo install cargo-expand
+```
+
 Build the main binary provided with this repo:
 
 ``` sh
