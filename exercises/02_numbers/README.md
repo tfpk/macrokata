@@ -22,10 +22,10 @@ in-between the brackets. Below we see a macro which will replace itself with `tr
 macro_rules! torf {
     (t) => {
         true
-    },
+    };
     (f) => {
         false
-    }
+    };
 }
 ```
 

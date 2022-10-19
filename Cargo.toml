@@ -16,7 +16,6 @@ path = "exercises/01_my_first_macro/main.rs"
 name = "01_my_first_macro_soln"
 path = "exercises/01_my_first_macro/solutions/main.rs"
 
-
 [[bin]]
 name = "02_numbers"
 path = "exercises/02_numbers/main.rs"
@@ -24,6 +23,15 @@ path = "exercises/02_numbers/main.rs"
 [[bin]]
 name = "02_numbers_soln"
 path = "exercises/02_numbers/solutions/main.rs"
+
+[[bin]]
+name = "03_literal_variables"
+path = "exercises/03_literal_variables/main.rs"
+
+[[bin]]
+name = "03_literal_variables_soln"
+path = "exercises/03_literal_variables/solutions/main.rs"
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
