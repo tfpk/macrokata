@@ -1,0 +1,22 @@
+[package]
+name = "macrokata"
+version = "0.1.0"
+edition = "2021"
+default-run = "macrokata"
+
+[[bin]]
+name = "macrokata"
+path = "src/main.rs"
+
+[[bin]]
+name = "01"
+path = "exercises/01_my_first_macro/main.rs"
+
+[[bin]]
+name = "01_soln"
+path = "exercises/01_my_first_macro/solutions/main.rs"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4.0.17", features = ["derive"] }
