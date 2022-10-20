@@ -48,7 +48,7 @@ println!("{}", 3);
 
 You might be wondering why we haven't said anything about the *type* of the
 literal. It turns out, the type doesn't matter during macro expansion. Rather
-than needing the type, rust just needs to know what sort of syntax to expect. If
+than needing the type, Rust just needs to know what sort of syntax to expect. If
 you tried to provide a variable name, and you needed a literal, Rust will throw
 an error. If you needed a *string* literal, and you provided a *char* literal,
 then rust will happily expand the code. It'll throw an error later on in the
@@ -81,4 +81,4 @@ is much easier to read than:
 
 ```
 
-
+You are now ready to complete`03_literal_variables`.
