@@ -62,9 +62,11 @@ What's now left is to use the matched values. To do this, the rule would be some
 
 ``` rust
  $(the $my_literal:literal)and+ => {
-    let mut my_vec = Vec::new();
-    $(my_vec.push($my_literal));+;
-    my_vec
+    {
+        let mut my_vec = Vec::new();
+        $(my_vec.push($my_literal));+;
+        my_vec
+    }
 }
 ```
 
@@ -79,4 +81,13 @@ The line `$(my_vec.push($my_literal));+;` is nearly identical to the repetition 
 
 So this will expand into the same code we saw above!
 
-You are now ready to complete `06_repetition`.
+It's worth noting that we've used an extra set of curly braces in our transcriber. This is because if you don't
+put the code in a block, the `let` block will be on the right hand side of the `=` sign; which doesn't make sense.
+
+If you put the code in a curly brace, then the right-hand side of the `=` sign will be a block which returns `my_vec`.
+
+# Starting Exercise 6
+
+You're now ready to complete `06_repetition`.
+Your task is to make a macro called `if_any!`, which takes a variable amount of boolean
+expressions; and if any of them are true, runs the block which is the last argument.

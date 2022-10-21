@@ -81,4 +81,9 @@ is much easier to read than:
 
 ```
 
-You are now ready to complete`03_literal_variables`.
+## Starting Exercise 03
+
+You're now ready to complete `03_literal_variables`.
+Your task is to create a macro which can perform two small bits of math --
+taking two literal numbers and adding them together (with the syntax `math!(3 plus 5)`);
+and squaring one literal number (with the syntax `math!(square 3)`).

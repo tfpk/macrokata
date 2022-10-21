@@ -47,6 +47,62 @@ path = "exercises/05_more_complex_example/main.rs"
 [[bin]]
 name = "05_more_complex_example_soln"
 path = "exercises/05_more_complex_example/solutions/main.rs"
+
+[[bin]]
+name = "06_repetition"
+path = "exercises/06_repetition/main.rs"
+
+[[bin]]
+name = "06_repetition_soln"
+path = "exercises/06_repetition/solutions/main.rs"
+
+[[bin]]
+name = "07_more_repetition"
+path = "exercises/07_more_repetition/main.rs"
+
+[[bin]]
+name = "07_more_repetition_soln"
+path = "exercises/07_more_repetition/solutions/main.rs"
+
+[[bin]]
+name = "08_nested_repetition"
+path = "exercises/08_nested_repetition/main.rs"
+
+[[bin]]
+name = "08_nested_repetition_soln"
+path = "exercises/08_nested_repetition/solutions/main.rs"
+
+[[bin]]
+name = "09_ambiguity_and_ordering"
+path = "exercises/09_ambiguity_and_ordering/main.rs"
+
+[[bin]]
+name = "09_ambiguity_and_ordering_soln"
+path = "exercises/09_ambiguity_and_ordering/solutions/main.rs"
+
+[[bin]]
+name = "10_macros_calling_macros"
+path = "exercises/10_macros_calling_macros/main.rs"
+
+[[bin]]
+name = "10_macros_calling_macros_soln"
+path = "exercises/10_macros_calling_macros/solutions/main.rs"
+
+[[bin]]
+name = "11_macro_recursion"
+path = "exercises/11_macro_recursion/main.rs"
+
+[[bin]]
+name = "11_macro_recursion_soln"
+path = "exercises/11_macro_recursion/solutions/main.rs"
+
+[[bin]]
+name = "12_hygiene_macros"
+path = "exercises/12_hygiene_macros/main.rs"
+
+[[bin]]
+name = "12_hygiene_macros_soln"
+path = "exercises/12_hygiene_macros/solutions/main.rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]

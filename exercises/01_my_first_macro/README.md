@@ -56,6 +56,6 @@ which Rust will use to decide which rule to execute.  Inside the curly brackets 
 So, `my_macro!()` will be replaced by `3`.
 
 
-## See it for yourself
+## Starting Exercise 01
 
-You now know everything you need to in order to complete `01_my_first_macro`.
+Your task is to write a macro named `show_output!()` which calls the `show_output()` function.
