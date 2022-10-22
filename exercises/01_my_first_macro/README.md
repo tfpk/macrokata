@@ -93,6 +93,6 @@ following:
 <!-- cmdrun echo test  -->
 <!-- cmdrun ls "target/**"  -->
 <!-- cmdrun echo test  -->
-<!-- cmdrun echo ls  -->
+<!-- cmdrun ls  -->
 ```
 
