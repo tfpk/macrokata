@@ -16,7 +16,7 @@ jobs:
         toolchain: nightly
     - name: Install mdbook
       run: |
-        mkdir "$GITHUB_PATH"
+        mkdir -p "$GITHUB_PATH"
         cargo install mdbook --root "$GITHUB_PATH"
         cargo install mdbook-keeper --root "$GITHUB_PATH"
         cargo install mdbook-cmdrun --root "$GITHUB_PATH"
