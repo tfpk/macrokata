@@ -22,7 +22,7 @@ jobs:
           ~/.cargo/registry/cache/
           ~/.cargo/git/db/
           target/
-        key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+        key: mdbook-${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
     - name: Install mdbook
       run: |
         which mdbook || cargo install mdbook
