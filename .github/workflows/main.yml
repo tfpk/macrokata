@@ -17,8 +17,8 @@ jobs:
       - run: cargo install cargo-all-features
       - run: cargo check-all-features --bin '*_soln'
       - run: cargo check-all-features --bin 'macrokata'
-      - run: cargo check-all-features release --bin '*_soln'
-      - run: cargo check-all-features release --bin 'macrokata'
+      - run: cargo check-all-features --release --bin '*_soln'
+      - run: cargo check-all-features --release --bin 'macrokata'
 
   build:
     runs-on: ubuntu-latest
@@ -30,8 +30,8 @@ jobs:
       - run: cargo install cargo-all-features
       - run: cargo build-all-features --bin '*_soln'
       - run: cargo build-all-features --bin 'macrokata'
-      - run: cargo build-all-features release --bin '*_soln'
-      - run: cargo build-all-features release --bin 'macrokata'
+      - run: cargo build-all-features --release --bin '*_soln'
+      - run: cargo build-all-features --release --bin 'macrokata'
 
   test:
     runs-on: ubuntu-latest
@@ -43,8 +43,8 @@ jobs:
       - run: cargo install cargo-all-features
       - run: cargo test-all-features --bin '*_soln'
       - run: cargo test-all-features --bin 'macrokata'
-      - run: cargo test-all-features release --bin '*_soln'
-      - run: cargo test-all-features release --bin 'macrokata'
+      - run: cargo test-all-features --release --bin '*_soln'
+      - run: cargo test-all-features --release --bin 'macrokata'
 
   clippy:
     runs-on: ubuntu-latest
