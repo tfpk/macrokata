@@ -28,6 +28,7 @@ jobs:
         which mdbook || cargo install mdbook
         which mdbook-keeper || cargo install mdbook-keeper
         which mdbook-cmdrun || cargo install mdbook-cmdrun
+        which mdbook-cmdrun || cargo install cargo-expand
         cargo build --bin macrokata
     - name: Deploy GitHub Pages
       run: |

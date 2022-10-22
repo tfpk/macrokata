@@ -88,10 +88,6 @@ following:
 <!-- If you can see this text, it means you're not looking at the book.   -->
 <!-- Run the cargo command below (without `cmdrun`) to see the real code. -->
 ```rust,ignore
-<!-- cmdrun echo test  -->
-<!-- cmdrun cd ../../ && cargo run goal 01_my_first_macro 2>&1  -->
-<!-- cmdrun echo test  -->
-<!-- cmdrun ls "../../target/**"  -->
-<!-- cmdrun echo test  -->
+<!-- cmdrun cd ../../ && cargo run goal 01_my_first_macro  -->
 ```
 
