@@ -39,12 +39,16 @@ In other words, to run the macro `my_macro`, you'd say `my_macro!()` or `my_macr
 
 The simplest form of macro looks like this:
 
-``` rust
+```rust
 macro_rules! my_macro {
     () => {
         3
     }
 }
+
+# fn main() {
+let _value = my_macro!();
+# }
 ```
 
 The `macro_rules!` instructs the compiler that there is a new macro you are defining.
@@ -56,6 +60,13 @@ which Rust will use to decide which rule to execute.  Inside the curly brackets 
 So, `my_macro!()` will be replaced by `3`.
 
 
-## Starting Exercise 01
+## Exercise 1: My First Macro
 
 Your task is to write a macro named `show_output!()` which calls the `show_output()` function.
+
+You may not edit the `main` function; but it should eventually look like the following:
+
+```rust,ignore
+<!-- cmdrun cargo run --quiet -- goal 01_my_first_macro  -->
+```
+
