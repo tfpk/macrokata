@@ -19,5 +19,4 @@ fn main() {
     );
 
     print_vec(&my_graph);
-
 }

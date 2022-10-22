@@ -12,7 +12,7 @@ fn print_hashmap<K: std::fmt::Debug, V: std::fmt::Debug>(hashmap: &HashMap<K, V>
 macro_rules! pair {
     ($i:expr => $e: expr) => {
         ($i, $e)
-    }
+    };
 }
 
 macro_rules! hashmap {
@@ -40,5 +40,4 @@ fn main() {
     );
 
     print_hashmap(&my_hashmap);
-
 }

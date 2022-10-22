@@ -10,8 +10,5 @@ fn print_success() {
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 fn main() {
-
-    if_any!(false, 0 == 1, true, {
-        p
-    })
+    if_any!(false, 0 == 1, true, { p })
 }

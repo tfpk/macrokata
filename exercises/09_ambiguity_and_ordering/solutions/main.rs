@@ -12,7 +12,7 @@ enum NumberType {
     /// We can't tell if the user's code is positive or negative because it's a block.
     UnknownBecauseBlock(i32),
     /// We can't tell if the user's code is positive or negative because it's an expression.
-    UnknownBecauseExpr(i32)
+    UnknownBecauseExpr(i32),
 }
 
 impl NumberType {
@@ -54,7 +54,11 @@ fn main() {
     get_number_type!(-5).show();
 
     // UnknownBecauseBlock
-    get_number_type!({ let x = 6; x }).show();
+    get_number_type!({
+        let x = 6;
+        x
+    })
+    .show();
 
     // UnknownBecauseExpr
     get_number_type!(sum!(1, 2, 3, 4)).show();

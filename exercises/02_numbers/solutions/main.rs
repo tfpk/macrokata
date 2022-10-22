@@ -6,9 +6,15 @@ fn print_result(num: i32) {
 ////////// DO NOT CHANGE ABOVE HERE /////////
 
 macro_rules! num {
-    (one) => {1};
-    (two) => {2};
-    (three) => {3};
+    (one) => {
+        1
+    };
+    (two) => {
+        2
+    };
+    (three) => {
+        3
+    };
 }
 
 ////////// DO NOT CHANGE BELOW HERE /////////

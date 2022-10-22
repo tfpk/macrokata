@@ -18,12 +18,12 @@ macro_rules! for_2d {
     ($x_name:ident <$x_type:ty> in $x_expr:expr, $y_name:ident <$y_type:ty> in $y_expr:expr, $block:block) => {
         for $x_name in $x_expr {
             let $x_name: $x_type = $x_name;
-            for $y_name in $y_expr  {
+            for $y_name in $y_expr {
                 let $y_name: $y_type = $y_name;
                 $block
             }
         }
-    }
+    };
 }
 
 ////////// DO NOT CHANGE BELOW HERE /////////

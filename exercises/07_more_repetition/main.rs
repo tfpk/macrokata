@@ -18,5 +18,4 @@ fn main() {
     );
 
     print_hashmap(&my_hashmap);
-
 }

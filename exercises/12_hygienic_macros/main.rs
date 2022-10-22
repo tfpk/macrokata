@@ -1,22 +1,24 @@
 macro_rules! coord {
-    ($x:expr, $y:expr) => {
-    };
-    ($x:expr, $y:expr, $z:expr) => {
-    };
-    ($x:expr, $y:expr, $z:expr, $t:expr) => {
-    };
+    ($x:expr, $y:expr) => {};
+    ($x:expr, $y:expr, $z:expr) => {};
+    ($x:expr, $y:expr, $z:expr, $t:expr) => {};
 }
-
 
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 #[derive(Debug)]
-pub struct Coordinate {pub x: i32, pub y: i32}
-
+pub struct Coordinate {
+    pub x: i32,
+    pub y: i32,
+}
 
 pub mod third_dimension {
     #[derive(Debug)]
-    pub struct Coordinate {pub x: i32, pub y: i32, pub z: i32}
+    pub struct Coordinate {
+        pub x: i32,
+        pub y: i32,
+        pub z: i32,
+    }
 
     impl Coordinate {
         pub fn as_2d(self) -> super::Coordinate {
@@ -27,7 +29,12 @@ pub mod third_dimension {
 
 pub mod fourth_dimension {
     #[derive(Debug)]
-    pub struct Coordinate {pub x: i32, pub y: i32, pub z: i32, pub t: i32}
+    pub struct Coordinate {
+        pub x: i32,
+        pub y: i32,
+        pub z: i32,
+        pub t: i32,
+    }
 
     impl Coordinate {
         pub fn as_3d(self) -> super::third_dimension::Coordinate {
@@ -36,9 +43,7 @@ pub mod fourth_dimension {
     }
 }
 
-
 fn main() {
-
     let four_dim = coord!(1, 2, 3, 1000);
     let three_dim = four_dim.as_3d();
     let two_dim = three_dim.as_2d();

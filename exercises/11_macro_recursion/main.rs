@@ -1,14 +1,15 @@
-
-macro_rules! curry {
-    (_, $block:block) => {$block};
-    (($argident:ident : $argtype:ty) => $(($argidents:ident: $argtypes:ty) =>)* _, $block:block) => {
-        move |$argident: $argtype| curry!($(($argidents: $argtypes) =>)* _, $block)
-    };
-}
-
 // TODO: Create the `curry!()` macro.
 
 ////////// DO NOT CHANGE BELOW HERE /////////
+
+fn print_numbers(nums: &Vec<i32>) {
+    println!("{nums:#?}");
+}
+
+fn get_example_vec() -> Vec<i32> {
+    vec![1, 3, 5, 6, 7, 9]
+}
+
 fn main() {
     let is_between = curry!((min: i32) => (max: i32) => (item: &i32) => _, {
         min < *item && *item < max
@@ -22,12 +23,11 @@ fn main() {
     let between_3_7 = curry_filter_between(3)(7);
     let between_5_10 = curry_filter_between(5)(10);
 
-    let my_vec = vec![1, 3, 5, 6, 7, 9];
+    let my_vec = get_example_vec();
 
     let some_numbers: Vec<i32> = between_3_7(&my_vec);
-    println!("{some_numbers:#?}");
+    print_numbers(&some_numbers);
 
     let more_numbers: Vec<i32> = between_5_10(&my_vec);
-    println!("{more_numbers:#?}");
-
+    print_numbers(&more_numbers);
 }

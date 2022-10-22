@@ -4,7 +4,9 @@ fn show_output() {
 }
 
 macro_rules! show_output {
-    () => {show_output()}
+    () => {
+        show_output()
+    };
 }
 
 fn main() {
