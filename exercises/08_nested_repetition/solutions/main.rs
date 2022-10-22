@@ -9,7 +9,7 @@ macro_rules! graph {
     ( $($from:literal -> ( $( $to:literal),* );)*  ) => {
         {
             let mut vec = Vec::new();
-            $( $( vec.push(($from, $to)); )* )*
+            $( $(vec.push(($from, $to));)* )*
 
             vec
         }
@@ -18,6 +18,7 @@ macro_rules! graph {
 
 ////////// DO NOT CHANGE BELOW HERE /////////
 
+#[allow(clippy::vec_init_then_push)]
 fn main() {
     let my_graph = graph!(
         1 -> (2, 3, 4, 5);

@@ -1,10 +1,11 @@
 # MacroKata
 
-MacroKata is a set of exercises which you can use to learn how
-to write macros in rust. Unlike most exercises, not only is your goal
-to produce the same output with your code as with the files
-in solution.rs; but it should *also* be to have your expanded code be the same
-as `result.rs`.
+Welcome to MacroKata, a set of exercises which you can use to learn how to write
+macros in rust. When completing each task, there are three goals:
+
+ - Get your code to compile without warnings or errors.
+ - Get your code to "work correctly" (i.e. produce the same output)
+ - Importantly, *generate the same code* as what the sample solution does.
 
 You should complete the kata in order, as they increase in
 difficulty, and depend on previous kata. 
@@ -42,5 +43,5 @@ Read the `README.md` file, and get started by editing the `main.rs` file.
 To test your code, run:
 
 ``` sh
-$ cargo run 01_my_first_macro
+$ cargo run -- run 01_my_first_macro
 ```

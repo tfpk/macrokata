@@ -97,12 +97,12 @@ name = "11_macro_recursion_soln"
 path = "exercises/11_macro_recursion/solutions/main.rs"
 
 [[bin]]
-name = "12_hygiene_macros"
-path = "exercises/12_hygiene_macros/main.rs"
+name = "12_hygienic_macros"
+path = "exercises/12_hygienic_macros/main.rs"
 
 [[bin]]
-name = "12_hygiene_macros_soln"
-path = "exercises/12_hygiene_macros/solutions/main.rs"
+name = "12_hygienic_macros_soln"
+path = "exercises/12_hygienic_macros/solutions/main.rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]

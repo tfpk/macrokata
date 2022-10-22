@@ -1,13 +1,17 @@
 use clap::{Parser, Subcommand};
-use std::process::{Command, Stdio};
 use std::error::Error;
+use std::process::{Command, Stdio};
 
 #[derive(Subcommand, Debug)]
 enum SubCommands {
-    Run {
+    Test {
         /// The name of the exercise to run.
-        exercise: String
-    }
+        exercise: String,
+    },
+    Goal {
+        /// The name of the exercise to run.
+        exercise: String,
+    },
 }
 
 /// MacroKata is a set of exercises to learn how to use
@@ -20,45 +24,58 @@ struct Args {
     command: SubCommands,
 }
 
-fn run(exercise: String) -> Result<(), Box<dyn Error>> {
+fn test(exercise: String) -> Result<(), Box<dyn Error>> {
     println!("This is the expansion you produced, along with any errors");
     println!();
 
     Command::new("cargo")
-                    .arg("expand")
-                    .arg("--bin")
-                    .arg(&exercise)
-                    .arg("main")
-                    .spawn()
-                    .unwrap()
-                    .wait()
-                    .unwrap();
+        .arg("expand")
+        .arg("--bin")
+        .arg(&exercise)
+        .arg("main")
+        .spawn()
+        .unwrap()
+        .wait()
+        .unwrap();
 
     println!();
     println!("The expansion we expected is:");
     println!();
 
-
     Command::new("cargo")
-                    .arg("expand")
-                    .arg("--bin")
-                    .arg(format!("{exercise}_soln"))
-                    .arg("main")
-                    .stderr(Stdio::null())
-                    .spawn()
-                    .unwrap()
-                    .wait()
-                    .unwrap();
+        .arg("expand")
+        .arg("--bin")
+        .arg(format!("{exercise}_soln"))
+        .arg("main")
+        .stderr(Stdio::null())
+        .spawn()
+        .unwrap()
+        .wait()
+        .unwrap();
 
     Ok(())
 }
 
-fn main()  -> Result<(), Box<dyn Error>> {
+fn goal(exercise: String) -> Result<(), Box<dyn Error>> {
+    Command::new("cargo")
+        .arg("expand")
+        .arg("--bin")
+        .arg(format!("{exercise}_soln"))
+        .arg("main")
+        .stderr(Stdio::null())
+        .spawn()
+        .unwrap()
+        .wait()
+        .unwrap();
+
+    Ok(())
+}
+
+fn main() -> Result<(), Box<dyn Error>> {
     let args = Args::parse();
 
     match args.command {
-        SubCommands::Run { exercise } => {
-            run(exercise)
-        }
+        SubCommands::Test { exercise } => test(exercise),
+        SubCommands::Goal { exercise } => goal(exercise),
     }
 }

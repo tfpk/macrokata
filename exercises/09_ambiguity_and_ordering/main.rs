@@ -45,7 +45,6 @@ macro_rules! get_number_type {
 }
 
 ////////// DO NOT CHANGE BELOW HERE /////////
-
 fn main() {
     // PositiveNumber
     get_number_type!(5).show();

@@ -54,6 +54,7 @@ fn main() {
     get_number_type!(-5).show();
 
     // UnknownBecauseBlock
+    #[allow(clippy::let_and_return)]
     get_number_type!({
         let x = 6;
         x
