@@ -9,13 +9,13 @@ meta-variables in a context where it's clear you're only referring to one of the
 In other words, the `$val` metavariable in the last paragraph *must* be used within
 a nested repetition.
 
-# Starting Exercise 8
+## Exercise 8: Nested Repetition
 
-In this exercise, you will be building a macro to load a data structure with
+In this task, you will be building a macro to load a data structure with
 an adjacency list from a graph. As a refresher, graphs are data-structures
 that describe how different nodes are connected.
-  * [ ] 
-In this example, each node is a literal, and you will be specifying, for each node,
+
+Each will be a literal, and you will be specifying, for each node,
 which nodes it connects to. For example:
 
 ```rust,ignore
@@ -30,6 +30,11 @@ graph!{
 
 Should get translated into a `Vec` containing the pairs `(1, 2)`, `(1, 3)`, ... `(2, 1)`, ... `(5, 3)`
 
-You're now ready to complete `08_nested_repetition`.
+You may not edit the `main` function; but it should eventually look like the
+following:
 
-
+<!-- If you can see this text, it means you're not looking at the book.   -->
+<!-- Run the cargo command below (without `cmdrun`) to see the real code. -->
+```rust,ignore
+<!-- cmdrun cargo run -- goal 08_nested_repetition -->
+```

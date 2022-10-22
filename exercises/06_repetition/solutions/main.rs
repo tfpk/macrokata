@@ -1,5 +1,4 @@
 ////////// DO NOT CHANGE BELOW HERE /////////
-// This function should be called by the `show_output!()` macro
 fn print_success() {
     println!("Yay, the if statement worked.");
 }

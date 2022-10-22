@@ -1,12 +1,17 @@
 # Exercise 4: Expression Metavariables
 
-We've now seen literal metavariables, however there are many fragments of rust code
-which can be captured in metavariables. A common fragment specifier is `expr`,
-which allows you to capture any rust expression (for example, `(3 * 5)` or
-`function_call() + CONSTANT`).
+We can now capture fragments of Rust code that are literals, however there are
+other fragments of rust code which can be captured in metavariables. In general,
+every metavariable is of the form `$<NAME>:<FRAGSPEC>`. `<NAME>` is replaced
+with the name of the metavariable; but `FRAGSPEC` is more interesting. It means
+"Fragment Specifier", and it tells you what sort of fragment of Rust code you
+intend to match. We've already seen `literal`, but another common fragment
+specifier is `expr`, which allows you to capture any rust expression (for
+example, `(3 * 5)` or `function_call() + CONSTANT`).
 
 Using this specifier is nearly identical to using the `literal` fragment
-specifier. As an example, `$x:expr` indicates a metavariable named `x`.
+specifier -- `$x:expr` indicates a metavariable, which is an expression, named
+`x`.
 
 It's also worth mentioning the fragment specifier `stmt`, which is similar to
 `expr`, but allows Rust statements too, like `let` statements.
@@ -20,13 +25,14 @@ expect from the brackets).
 # "Follow-set Ambiguity Rules"
 
 The rust parser needs to have some way of telling "where does a metavariable
-  * [x] end". If it didn't, expressions like `$a:expr $b:expr` would be confusing to
-parse in some circumstances (for example, how would you parse `3 * 4 * b` -- is
-a `3 * 4`, and b `*b`? is `b` supposed to be empty?).
+end". If it didn't, expressions like `$first:expr $second:expr` would be confusing to
+parse in some circumstances (for example, how would you parse `a * b * c * d`?
+Would `first` be `a`, and `second` be `*b * c * d`? Or would `first` be `a * b * c`,
+and `second` be `* d`?
 
 To avoid this problem entirely, Rust has a set of rules called the "follow-set
-ambiguity rules". These tell you what is allowed (and what isn't) to follow a
-metavariable.
+ambiguity rules". These tell you which tokens are allowed to follow a
+metavariable (and which aren't).
 
 For `literal`s, this rule is simple -- anything can follow a literal
 metavariable.

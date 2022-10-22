@@ -8,7 +8,7 @@ within a repetition.
 
 ## Multiple Metavariables in One Repetition
 
-You can explicitly specify that two metavariables should be used in a single repetition.
+You can indicate that two metavariables should be used in a single repetition.
 
 For example, `( $($i:ident is $e:expr),+ )` would match `my_macro!(pi is 3.14, tau is 6.28)`. 
 You would end up with `$i` having matched `pi` and `tau`; and `$e` having matched `3.14` and
@@ -41,9 +41,10 @@ macro_rules! two_vecs {
 # }
 ```
 
-Importantly, with the above example, you have to be careful about using `$vec1` and `$vec2`
-in the same repetition. It is a compiler error to use two metavariables captured 
-a different number of times in the same repetition.
+Importantly, with the above example, you have to be careful about using `$vec1`
+and `$vec2` in the same repetition within the transcriber. It is a compiler
+error to use two metavariables captured a different number of times in the same
+repetition.
 
 To quote [the reference](https://doc.rust-lang.org/reference/macros-by-example.html#transcribing):
 
@@ -56,7 +57,16 @@ To quote [the reference](https://doc.rust-lang.org/reference/macros-by-example.h
 > but `(a, b, c; d, e)` is illegal because it does not have the same
 > number. 
 
-# Starting Exercise 7
+## Exercise 7: More Repetition
 
-You're now ready to complete `07_more_repetition`.
-Your task is to create a macro which creates a hashmap from mutiple literals and expressions.
+In this task, you will be creating an `if_any!` macro. If any of the first arguments are true,
+it should execute the block which is the last argument.
+
+You may not edit the `main` function; but it should eventually look like the
+following:
+
+<!-- If you can see this text, it means you're not looking at the book.   -->
+<!-- Run the cargo command below (without `cmdrun`) to see the real code. -->
+```rust,ignore
+<!-- cmdrun cargo run -- goal 07_more_repetition -->
+```

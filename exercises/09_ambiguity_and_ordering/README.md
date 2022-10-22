@@ -5,7 +5,7 @@ We saw earlier that macros can require more than one rule; but so far we've neve
 had ambiguity in which rule should be followed.
 
 There are, however, multiple circumstances where rules could have ambiguity,
-so it's important to understand how macros actually work.
+so it's important to understand how macros deal with that ambiguity.
 
 The following is adapted from the [rust documentation on
 macros](https://doc.rust-lang.org/reference/macros-by-example.html#transcribing):
@@ -15,13 +15,13 @@ macros](https://doc.rust-lang.org/reference/macros-by-example.html#transcribing)
  - To try a rule, it reads through each token in the parser in turn. There are
    three possibilities:
  
-   1. the token found matches the matcher. In this case, it keeps parsing the
+   1. The token found matches the matcher. In this case, it keeps parsing the
       next token. If there are no tokens left, and the matcher is complete, then
       the rule matches.
-   2. the token found does not match the matcher. In this case, rust tries the
+   2. The token found does not match the matcher. In this case, rust tries the
       next rule. If there are no rules left, an error is raised as the macro
       cannot be expanded.
-   3. the rule is ambiguous. In other words, it's not clear from *just this
+   3. The rule is ambiguous. In other words, it's not clear from *just this
       token* what to do. If this happens, this is an error.
    
  - If it finds a rule that matches the tokens inside the brackets; it starts
@@ -60,12 +60,23 @@ This example demonstrates an example where rust macros can behave strangely due 
 ordering rules -- even though `literal` is a much stricter condition than `expr`,
 because `literal`s are `expr`s; the first rule will always match.
 
-# Starting Exercise 9
-
-You're now ready to complete `09_ambiguity_and_ordering`.
+## Exercise 9: Ambiguity and Ordering
 
 This task is a little bit different to previous tasks -- we have given you 
 a partially functional macro already; along with some invocations of that macro.
 
 You should adjust the macro's rules and syntax to make sure that you 
-achieve the correct behaviour without any ambiguity.
+achieve the correct behaviour without any ambiguity. 
+
+ - `sum!()` should sum together two or more expressions together.
+ - `get_number_type!()` should determine what sort of rust syntax is being used:
+    a positive literal; a negative literal; a block, or an expression.
+
+You may not edit the `main` function; but it should eventually look like the
+following:
+
+<!-- If you can see this text, it means you're not looking at the book.   -->
+<!-- Run the cargo command below (without `cmdrun`) to see the real code. -->
+```rust,ignore
+<!-- cmdrun cargo run -- goal 09_ambiguity_and_ordering -->
+```

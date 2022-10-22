@@ -1,7 +1,7 @@
 ////////// DO NOT CHANGE BELOW HERE /////////
 use std::collections::HashMap;
 
-fn print_hashmap<K, V>(hashmap: &HashMap<K, V>) {
+fn print_hashmap(hashmap: &HashMap<&str, &str>) {
     println!("{hashmap:#?}");
 }
 ////////// DO NOT CHANGE ABOVE HERE /////////
