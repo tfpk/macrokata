@@ -5,8 +5,9 @@ To complete each exercise (including this one), you should:
 
 * [ ] Read the `README.md` file, to understand what your goal is.
 * [ ] Try and complete the `main.rs` file.
-* [ ] Run the binary in this file, `cargo run 01_my_first_macro`.
-* [ ] Get your code to compile, run, and have the main file look the same as `result.rs`
+* [ ] Run the binary in this folder `cargo run test 01_my_first_macro`.
+* [ ] Get your code to compile, run, and have the main function look the same as
+      shown below.
 
 
 ## What are Macros?
@@ -66,7 +67,9 @@ Your task is to write a macro named `show_output!()` which calls the `show_outpu
 
 You may not edit the `main` function; but it should eventually look like the following:
 
+<!-- If you can see this text, it means you're not looking at the book.   -->
+<!-- Run the cargo command below (without `cmdrun`) to see the real code. -->
 ```rust,ignore
-<!-- cmdrun cargo run --quiet -- goal 01_my_first_macro  -->
+<!-- cmdrun cargo run -- goal 01_my_first_macro  -->
 ```
 

@@ -7,32 +7,6 @@ env:
 
 
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-      - run: cargo install cargo-all-features
-      - run: cargo check-all-features --bin '*_soln'
-      - run: cargo check-all-features --bin 'macrokata'
-      - run: cargo check-all-features --release --bin '*_soln'
-      - run: cargo check-all-features --release --bin 'macrokata'
-
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions-rs/toolchain@v1
-        with:
-          toolchain: stable
-      - run: cargo install cargo-all-features
-      - run: cargo build-all-features --bin '*_soln'
-      - run: cargo build-all-features --bin 'macrokata'
-      - run: cargo build-all-features --release --bin '*_soln'
-      - run: cargo build-all-features --release --bin 'macrokata'
-
   test:
     runs-on: ubuntu-latest
     steps:
