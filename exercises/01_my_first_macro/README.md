@@ -90,4 +90,3 @@ following:
 ```rust,ignore
 <!-- cmdrun cargo run -- goal 01_my_first_macro -->
 ```
-
