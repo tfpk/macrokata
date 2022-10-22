@@ -2,15 +2,14 @@
 
 In the last exercise, we saw how we could change the behaviour of
 a macro based on text inside the brackets. This is great, but it's
-basically an if statement on the text inside the brackets -- it's not
-very powerful.
+basically an if statement on the text inside the brackets -- it's
+very simplistic.
 
-In this exercise, we will introduce the concept of a "metavariable".
-Metavariables capture a particular part of the text inside the macro's
-brackets; and let you reuse it.
+Now we will introduce the concept of a "metavariable". Metavariables capture a
+particular part of the text inside the macro's brackets; and let you reuse it.
 
-The syntax for a meta-variable is simple. To explain the syntax, see the
-example below:
+The syntax for a meta-variable is simple. To explain the syntax, see the example
+below:
 
 ```rust,ignore
 macro_rules! do_thing {
@@ -20,10 +19,10 @@ macro_rules! do_thing {
 }
 ```
 
-The `$metavar:literal` is saying that you're capturing any `literal`
-(which is something like `'a'`, or `3`, or `"hello"`), and naming it
-`metavar`. Then, `$metavar` inside the `println!` is saying to "fill in"
-that space with whatever `metavar` is.
+The `$metavar:literal` is saying that you're capturing any `literal` (which is
+something like `'a'`, or `3`, or `"hello"`), and naming it `metavar`. Then,
+`$metavar` inside the `println!` is saying to "fill in" that space with whatever
+`metavar` is.
 
 For an invocation like:
 
@@ -62,10 +61,9 @@ than needing the type, Rust just needs to know what sort of syntax to expect. If
 you tried to provide a variable name, and you needed a literal, Rust will throw
 an error. If you needed a *string* literal, and you provided a *char* literal,
 then rust will happily expand the code. It'll throw an error later on in the
-compilation process, just like if you had written the expanded code.
+compilation process; as if you had written the expanded code.
 
-
-## A note on MacroKata avoiding using Built-In Macros
+## Why do these examples avoid using macros?
 
 The example above uses the `println!` macro inside the `print_me`
 macro. Rust is totally fine with this! However, `macrokata` tries 
@@ -91,9 +89,20 @@ is much easier to read than:
 
 ```
 
-## Starting Exercise 03
+## Exercise 3: Literal Meta-Variables
 
-You're now ready to complete `03_literal_variables`.
-Your task is to create a macro which can perform two small bits of math --
-taking two literal numbers and adding them together (with the syntax `math!(3 plus 5)`);
-and squaring one literal number (with the syntax `math!(square 3)`).
+Your task is to create a macro which can perform two small bits of math:
+
+ - The syntax `math!(3 plus 5)` should expand to `3 + 5`, where `3` and `5`
+   could be any literal.
+ - The syntax `math!(square 2)` should expand to `2 * 2`, where `2` could be any
+   literal.
+
+You may not edit the `main` function; but it should eventually look like the
+following:
+
+<!-- If you can see this text, it means you're not looking at the book.   -->
+<!-- Run the cargo command below (without `cmdrun`) to see the real code. -->
+```rust,ignore
+<!-- cmdrun cargo run -- goal 03_literal_variables -->
+```
