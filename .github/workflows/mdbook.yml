@@ -25,9 +25,9 @@ jobs:
         key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
     - name: Install mdbook
       run: |
-        cargo install mdbook
-        cargo install mdbook-keeper
-        cargo install mdbook-cmdrun
+        which mdbook || cargo install mdbook
+        which mdbook-keeper || cargo install mdbook-keeper
+        which mdbook-cmdrun || cargo install mdbook-cmdrun
     - name: Deploy GitHub Pages
       run: |
         # This assumes your book is in the root of your repository.
