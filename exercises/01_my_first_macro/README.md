@@ -89,10 +89,9 @@ following:
 <!-- Run the cargo command below (without `cmdrun`) to see the real code. -->
 ```rust,ignore
 <!-- cmdrun echo test  -->
-<!-- cmdrun cargo run goal 01_my_first_macro  -->
+<!-- cmdrun cd ../../ && cargo run goal 01_my_first_macro  -->
 <!-- cmdrun echo test  -->
-<!-- cmdrun ls "target/**"  -->
+<!-- cmdrun ls "../../target/**"  -->
 <!-- cmdrun echo test  -->
-<!-- cmdrun ls  -->
 ```
 
