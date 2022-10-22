@@ -1,0 +1,10 @@
+[book]
+authors = ["Tom Kunc <tom@tfpk.dev>"]
+language = "en"
+multilingual = false
+src = "src"
+title = "MacroKata"
+
+[preprocessor.keeper]
+
+[preprocessor.cmdrun]
