@@ -8,31 +8,37 @@ variable number of arguments).
 A simple approach might be to write a rule for each number of arguments;
 for example:
 
-``` rust
+```rust
 macro_rules! listing_literals {
-    (the $e1:expr) => {
-        let mut my_vec = Vec::new();
-        my_vec.push($e1);
-        my_vec
+    (the $e1:literal) => {
+        {
+            let mut my_vec = Vec::new();
+            my_vec.push($e1);
+            my_vec
+        }
     };
-    (the $e1:expr and the $e2:expr) => {
-        let mut my_vec = Vec::new();
-        my_vec.push($e1);
-        my_vec.push($e2);
-        my_vec
+    (the $e1:literal and the $e2:literal) => {
+        {
+            let mut my_vec = Vec::new();
+            my_vec.push($e1);
+            my_vec.push($e2);
+            my_vec
+        }
     };
-    (the $e1:expr and the $e2:expr and the $e3:expr) => {
-        let mut my_vec = Vec::new();
-        my_vec.push($e1);
-        my_vec.push($e2);
-        my_vec.push($e3);
-        my_vec
+    (the $e1:literal and the $e2:literal and the $e3:literal) => {
+        {
+            let mut my_vec = Vec::new();
+            my_vec.push($e1);
+            my_vec.push($e2);
+            my_vec.push($e3);
+            my_vec
+        }
     }
 }
 
 fn main() {
-    let vec = listing_literals!(the "lion" and the "witch" and the "wardrobe");
-    let vec = listing_literals!(the 9 and the 5);
+    let vec: Vec<&str> = listing_literals!(the "lion" and the "witch" and the "wardrobe");
+    let vec: Vec<i32> = listing_literals!(the 9 and the 5);
 }
 ```
 
@@ -60,7 +66,7 @@ Let's break that down:
 
 What's now left is to use the matched values. To do this, the rule would be something like:
 
-``` rust
+```rust,ignore
  $(the $my_literal:literal)and+ => {
     {
         let mut my_vec = Vec::new();

@@ -22,17 +22,23 @@ So a transcriber could be `$(let $i = $e;)+`; or `let product = $($e)*+`
 Alternatively, you could specify two different repetitions, each containing their
 own metavariable. For example, this program will construct two vecs.
 
-``` rust
+```rust
 macro_rules! two_vecs {
     ($($vec1:expr),+; $($vec2:expr),+) => {
-        let mut vec1 = Vec::new();
-        $(vec1.push($vec1);)+
-        let mut vec2 = Vec::new();
-        $(vec2.push($vec2);)+
-        
-        (vec1, vec2)
+        {
+            let mut vec1 = Vec::new();
+            $(vec1.push($vec1);)+
+            let mut vec2 = Vec::new();
+            $(vec2.push($vec2);)+
+
+            (vec1, vec2)
+        }
     }
 }
+
+# fn main() {
+    let vecs = two_vecs!(1, 2, 3; 'a', 'b');
+# }
 ```
 
 Importantly, with the above example, you have to be careful about using `$vec1` and `$vec2`

@@ -12,7 +12,7 @@ brackets; and let you reuse it.
 The syntax for a meta-variable is simple. To explain the syntax, see the
 example below:
 
-``` rust
+```rust,ignore
 macro_rules! do_thing {
     (print $metavar:literal) => {
         println!("{}", $metavar)
@@ -27,21 +27,31 @@ that space with whatever `metavar` is.
 
 For an invocation like:
 
-``` rust
+```rust
+# macro_rules! do_thing {
+#     (print $metavar:literal) => {
+#         println!("{}", $metavar)
+#     };
+# }
+# 
+# fn main() {
 do_thing!(print 3);
+# }
 ```
 
 Rust understands that `metavar` means `3`. So, when doing substitution,
 it starts by writing:
 
-``` rust
+```rust,ignore
 println!("{}", $metavar);
 ```
 
 And then substitutes `3` for `$metavar`
 
 ``` rust
+# fn main() {
 println!("{}", 3);
+# }
 ```
 
 ## But what about types?
@@ -63,13 +73,13 @@ to avoid (as much as possible) using macros we didn't define inside
 the main function. The reason for this is that, if we did use `println!`
 you would see it's expansion as well. That could be confusing, since:
 
-``` rust
+```rust,ignore
 print("some text")
 ```
 
 is much easier to read than:
 
-``` rust
+```rust,ignore
     {
         ::std::io::_print(
             ::core::fmt::Arguments::new_v1(

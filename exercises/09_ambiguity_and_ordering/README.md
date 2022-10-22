@@ -30,26 +30,30 @@ macros](https://doc.rust-lang.org/reference/macros-by-example.html#transcribing)
 Let's have a look at some examples:
 
 
-``` rust
+```rust,ignore
 macro_rules! ambiguity {
     ($($i:ident)* $j:ident) => { };
 }
 
+# fn main() {
 ambiguity!(error); 
+# }
 ```
 
 This example fails because rust is not able to determine what `$j` should be just by looking at
 the current token. If rust could look forward, it would see that `$j` must be followed by a `)`,
 but it cannot; so it causes an error.
 
-``` rust
+```rust
 macro_rules! ordering {
     ($j:expr) => { "This was an expression" };
     ($j:literal) => { "This was a literal" };
 }
 
-let ordering!('a');  // => "This was an expression".
-let ordering!(3 + 5);  // => "This was an expression".
+# fn main() {
+let expr1 = ordering!('a');  // => "This was an expression".
+let expr1 = ordering!(3 + 5);  // => "This was an expression".
+# }
 ```
 
 This example demonstrates an example where rust macros can behave strangely due to

@@ -29,6 +29,10 @@ macro_rules! torf {
         false
     };
 }
+# fn main() {
+let _true = torf!(t);
+let _false = torf!(f);
+# }
 ```
 
 You'll note the syntax has changed slightly -- we've gone from having one of the `() => {}` blocks (which is called a rule),

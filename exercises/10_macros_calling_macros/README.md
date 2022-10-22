@@ -20,14 +20,16 @@ tokens might be. For example:
 
 ``` rust
 macro_rules! stringify_number {
-    (one) => {"1"},
-    (two) => {"2"},
-    ($tokens:tt) => { stringify!($tokens)},
+    (one) => {"1"};
+    (two) => {"2"};
+    ($tokens:tt) => { stringify!($tokens)};
 }
 
+# fn main() {
 stringify_number!(one); // is "1"
 stringify_number!(while); // is "while"
 stringify_number!(bing_bang_boom); // is "bing_bang_boom"
+# }
 ```
 
 It's really important to keep in mind with `tt` macros that you **must**
@@ -52,7 +54,7 @@ specifier of the same type. The `ident`, `lifetime`, and `tt` fragment types are
 exception, and *can* be matched by literal tokens. The following illustrates this
 restriction:
 
-```rust
+```rust,ignore
 macro_rules! foo {
     ($l:expr) => { bar!($l); }
 // ERROR:               ^^ no rules expected this token in macro call
@@ -62,7 +64,9 @@ macro_rules! bar {
     (3) => {}
 }
 
+# fn main() {
 foo!(3);
+# }
 ```
 
 The following illustrates how tokens can be directly matched after matching a `tt` fragment:
@@ -78,7 +82,9 @@ macro_rules! bar {
     (3) => {}
 }
 
+# fn main() {
 foo!(3);
+# }
 ```
 
 ## Exercise 10: Macros Calling Macros

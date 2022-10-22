@@ -18,7 +18,7 @@ that describe how different nodes are connected.
 In this example, each node is a literal, and you will be specifying, for each node,
 which nodes it connects to. For example:
 
-``` rust
+```rust,ignore
 graph!{
     1 -> (2, 3, 4, 5);
     2 -> (1, 3);
