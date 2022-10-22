@@ -40,8 +40,15 @@ $ cargo build
 You can find the first kata (`my_first_macro`) inside `tasks/01_my_first_macro`.
 Read the `README.md` file, and get started by editing the `main.rs` file.
 
-To test your code, run:
+To compare your expanded code to the "goal"; use the `test` subcommand.
 
 ``` sh
-$ cargo run -- run 01_my_first_macro
+$ cargo run -- test 01_my_first_macro
 ```
+
+To run your own code, use:
+
+``` sh
+$ cargo run --bin 01_my_first_macro
+```
+
