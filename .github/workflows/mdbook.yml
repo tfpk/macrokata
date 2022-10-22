@@ -16,10 +16,9 @@ jobs:
         toolchain: nightly
     - name: Install mdbook
       run: |
-        mkdir -p "$GITHUB_PATH"
-        cargo install mdbook --root "$GITHUB_PATH"
-        cargo install mdbook-keeper --root "$GITHUB_PATH"
-        cargo install mdbook-cmdrun --root "$GITHUB_PATH"
+        cargo install mdbook
+        cargo install mdbook-keeper
+        cargo install mdbook-cmdrun
     - name: Deploy GitHub Pages
       run: |
         # This assumes your book is in the root of your repository.
