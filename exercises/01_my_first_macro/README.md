@@ -70,8 +70,7 @@ You may not edit the `main` function; but it should eventually look like the fol
 <!-- If you can see this text, it means you're not looking at the book.   -->
 <!-- Run the cargo command below (without `cmdrun`) to see the real code. -->
 ```rust,ignore
-<!-- cmdrun echo "test"  -->
-<!-- cmdrun cargo metadata  -->
 <!-- cmdrun cargo run -- goal 01_my_first_macro  -->
+<!-- cmdrun ls target/**  -->
 ```
 
