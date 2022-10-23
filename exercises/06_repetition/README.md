@@ -38,7 +38,9 @@ macro_rules! listing_literals {
 
 fn main() {
     let vec: Vec<&str> = listing_literals!(the "lion" and the "witch" and the "wardrobe");
+    assert_eq!(vec, vec!["lion", "witch", "wardrobe"]);
     let vec: Vec<i32> = listing_literals!(the 9 and the 5);
+    assert_eq!(vec, vec![9, 5]);
 }
 ```
 
