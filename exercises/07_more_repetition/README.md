@@ -59,8 +59,10 @@ To quote [the reference](https://doc.rust-lang.org/reference/macros-by-example.h
 
 ## Exercise 7: More Repetition
 
-In this task, you will be creating an `if_any!` macro. If any of the first arguments are true,
-it should execute the block which is the last argument.
+In this task, you will be creating a `hashmap` macro. It should consist
+of comma-separated pairs, of the form <code>literal => expr,</code>
+This should construct an empty hashmap and <code>insert</code> the
+relevant key-value pairs.
 
 You may not edit the `main` function; but it should eventually look like the
 following:
