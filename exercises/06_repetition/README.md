@@ -100,7 +100,7 @@ If you put the code in a curly brace, then the right-hand side of the `=` sign w
 In this task, you will be creating an `if_any!` macro. If any of the first arguments are true,
 it should execute the block which is the last argument.
 
-You may not edit the `main` function; but once you have completd the exercise, your `if_any!` macro should expand to look like the
+You may not edit the `main` function; but once you have completed the exercise, your `if_any!` macro should expand to look like the
 following:
 
 <!-- If you can see this text, it means you're not looking at the book.   -->
