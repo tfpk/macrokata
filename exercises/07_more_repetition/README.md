@@ -60,8 +60,8 @@ To quote [the reference](https://doc.rust-lang.org/reference/macros-by-example.h
 ## Exercise 7: More Repetition
 
 In this task, you will be creating a `hashmap` macro. It should consist
-of comma-separated pairs, of the form <code>literal => expr,</code>
-This should construct an empty hashmap and <code>insert</code> the
+of comma-separated pairs, of the form `literal => expr,`
+This should construct an empty `HashMap` and `insert` the
 relevant key-value pairs.
 
 You may not edit the `main` function; but it should eventually look like the
