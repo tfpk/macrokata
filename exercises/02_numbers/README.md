@@ -70,7 +70,7 @@ Further advanced reading about what tokens are can be found [here](https://doc.r
 
 ## Exercise 2: Numbers
 
-Your task is to create a macro which replaces the words `one`, `two` and `three`
+Your task is to create a macro called `num` which replaces the words `one`, `two` and `three`
 with the relevant numbers.
 
 You may not edit the `main` function; but it should eventually look like the
