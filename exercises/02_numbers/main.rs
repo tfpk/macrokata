@@ -9,5 +9,5 @@ fn print_result(num: i32) {
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 fn main() {
-    print_result(num!(one) + num!(two) + num!(three))
+    print_result(num!(one) + num!(two) + num!(three));
 }
