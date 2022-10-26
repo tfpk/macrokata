@@ -34,7 +34,7 @@ $ cargo install cargo-expand
 Build the main binary provided with this repo:
 
 ``` sh
-$ cargo build
+$ cargo build --bin macrokata
 ```
 
 You can find the first kata (`my_first_macro`) inside `tasks/01_my_first_macro`.
