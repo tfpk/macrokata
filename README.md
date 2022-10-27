@@ -37,7 +37,7 @@ Build the main binary provided with this repo:
 $ cargo build --bin macrokata
 ```
 
-You can find the first kata (`my_first_macro`) inside `tasks/01_my_first_macro`.
+You can find the first kata (`my_first_macro`) inside `exercises/01_my_first_macro`.
 Read the `README.md` file, and get started by editing the `main.rs` file.
 
 To compare your expanded code to the "goal"; use the `test` subcommand.
