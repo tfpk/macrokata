@@ -8,7 +8,7 @@ enum NumberType {
     /// The user wrote a literal, positive number.
     PositiveNumber(u32),
     /// The user wrote a literal, negative number.
-    NegativeNumber(u32),
+    NegativeNumber(i32),
     /// We can't tell if the user's code is positive or negative because it's a block.
     UnknownBecauseBlock(i32),
     /// We can't tell if the user's code is positive or negative because it's an expression.
