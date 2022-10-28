@@ -106,4 +106,6 @@ path = "exercises/12_hygienic_macros/solutions/main.rs"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+atty = "0.2.14"
 clap = { version = "4.0.17", features = ["derive"] }
+imara-diff = "0.1.3"
