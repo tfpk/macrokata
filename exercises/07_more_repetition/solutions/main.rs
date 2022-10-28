@@ -7,7 +7,7 @@ fn print_hashmap(hashmap: &HashMap<&str, &str>) {
 ////////// DO NOT CHANGE ABOVE HERE /////////
 
 macro_rules! hashmap {
-    ( $($k:literal => $v:expr),* ) => {
+    ( $($k:literal => $v:expr,)* ) => {
         {
             let mut hm = HashMap::new();
             $( hm.insert($k, $v); )*
@@ -22,7 +22,7 @@ fn main() {
     let value = "my_string";
     let my_hashmap = hashmap!(
         "hash" => "map",
-        "Key" => value
+        "Key" => value,
     );
 
     print_hashmap(&my_hashmap);
