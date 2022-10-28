@@ -20,7 +20,7 @@ much more flexibility in what you can write.
 This allows you to break many of the syntax rules rust imposes on you. For
 example, Rust does not allow "variadic" functions -- functions with variable
 numbers of arguments. This makes a `println` function impossible -- it would
-have to take any number of arguments (`println!("hello")` and `println("{}",
+have to take any number of arguments (`println("hello")` and `println("{}",
 123)`, for example).
 
 Rust gets around this rule by using a `println!` macro. Before `println!` is
