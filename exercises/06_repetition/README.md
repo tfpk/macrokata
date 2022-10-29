@@ -1,12 +1,12 @@
 # Exercise 6: Repetition
 
-Hopefully, you're now feeling pretty confident with metavariables. But, one of
+Hopefully, you're now feeling pretty confident with metavariables. One of
 the first justifications we gave for macros was their ability to simulate
 "variadic" functions (functions which have a variable number of arguments). In
 this exercise, we'll have a look at how you can implement them yourself.
 
-A simple approach might be to write a rule for each number of arguments; for
-example:
+A simple approach might be to write a rule for each number of arguments. For
+example, one might write
 
 ```rust
 macro_rules! listing_literals {
@@ -46,25 +46,25 @@ fn main() {
 
 This is very clunky, and involves a large amount of repeated code. Imagine doing
 this for 10 arguments! What if we could say that we want *a variable number* of
-a particular patterns. That would let us say "give me any number of `$e:expr`
+a particular patterns? That would let us say "give me any number of `$e:expr`
 tokens, and I'll tell you what to do with them'".
 
 Macro repetitions let us do just that. They consist of three things:
- - a group of tokens that we want to match repeatedly.
- - optionally, a separator token (which tells the parser what to look for between each match)
- - either `+`, `*` or `?`; which says how many times to expect a match. `+` means "at least once".
+ - A group of tokens that we want to match repeatedly.
+ - Optionally, a separator token (which tells the parser what to look for between each match).
+ - Either `+`, `*` or `?`, which says how many times to expect a match. `+` means "at least once".
    `*` means "any number of times, including 0 times". `?` means "either 0 times, or 1 time".
 
 Let's look at an example of a macro repetition, to parse the exact macro
 we showed above.
 
-The matcher we would use for this is: `$(the $my_literal:literal)and+`.
+The matcher we would use for this is `$(the $my_literal:literal)and+`.
 To break that down:
 
  - `$(` means that we're starting a repetition.
- - Inside the brackets, `the $my_literal:literal` is the pattern we're matching . We'll match the exact text "the", and then a literal token.
- - the `)` means that we're done describing the pattern to match.
- - the `and` is optional, but it is the "separator" -- a token you can use to seperate multiple repetitions. Commonly it's `,` to comma-separate things. 
+ - Inside the brackets, `the $my_literal:literal` is the pattern we're matching. We'll match the exact text "the", and then a literal token.
+ - The `)` means that we're done describing the pattern to match.
+ - The `and` is optional, but it is the "separator": a token you can use to seperate multiple repetitions. Commonly it's `,` to comma-separate things.
  - Here, we use `+`, which means the repetition must happen at least once. `*` would have worked just as well if we were okay with an empty `Vec`.
 
 What's now left is to use the matched values. To do this, the rule would be something like:
@@ -84,7 +84,7 @@ The line `$(my_vec.push($my_literal));+;` is nearly identical to the repetition 
  - `$(` tells us that we're starting a repetition.
  - `my_vec.push($my_literal)` is the code that will be transcribed. `$my_literal` will be replaced with each of the literals specified in the matcher.
  - The `)` means that we're done describing the code that will be transcribed.
- - The `;` means we're separating these lines with semicolons
+ - The `;` means we're separating these lines with semicolons.
  - The `+` ends the repetition.
  - The `;` adds a final semicolon after the expansion of everything.
 
@@ -100,7 +100,7 @@ If you put the code in a curly brace, then the right-hand side of the `=` sign w
 In this task, you will be creating an `if_any!` macro. If any of the first arguments are true,
 it should execute the block which is the last argument.
 
-You may not edit the `main` function; but once you have completed the exercise, your `if_any!` macro should expand to look like the
+You may not edit the `main` function, but once you have completed the exercise, your `if_any!` macro should expand to look like the
 following:
 
 <!-- If you can see this text, it means you're not looking at the book.   -->

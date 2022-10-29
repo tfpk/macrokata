@@ -10,7 +10,7 @@ for_2d!(row <i32> in 1..5, col <i32> in 2..7, {
 #}
 ```
 
-This code should translate to (ignoring extra curly braces):
+Ignoring extra curly braces, this code should translate to
 
 ``` rust
 # fn main() {
@@ -34,7 +34,7 @@ about:
  - `ty`: a type. Can only be followed by `=>`, `,`, `=`, `|`, `;`,
     `:`, `>`, `>>`, `[`, `{`, `as`, `where`, or a `block` metavariable.
 
-As a reminder, you may not edit the `main` function; but it should eventually
+As a reminder, you may not edit the `main` function, but it should eventually
 look like the following:
 
 <!-- If you can see this text, it means you're not looking at the book.   -->

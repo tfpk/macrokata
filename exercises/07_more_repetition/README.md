@@ -1,7 +1,7 @@
 # Exercise 7: More Repetition
 
 This exercise is going to also cover writing repetitions, but now involving more than
-one metavariable. Don't worry -- the syntax is the exact same as what you've seen before.
+one metavariable. Don't worry: the syntax is the exact same as what you've seen before.
 
 Before you start, let's just quickly cover the different ways you can use a metavariable
 within a repetition.
@@ -10,9 +10,9 @@ within a repetition.
 
 You can indicate that two metavariables should be used in a single repetition.
 
-For example, `( $($i:ident is $e:expr),+ )` would match `my_macro!(pi is 3.14, tau is 6.28)`. 
+For example, `( $($i:ident is $e:expr),+ )` would match `my_macro!(pi is 3.14, tau is 6.28)`.
 You would end up with `$i` having matched `pi` and `tau`; and `$e` having matched `3.14` and
-`6.28`. 
+`6.28`.
 
 Any repetition in the transcriber can use `$i`, or `$e`, or both within the same repetition.
 So a transcriber could be `$(let $i = $e;)+`; or `let product = $($e)*+`
@@ -55,7 +55,7 @@ To quote [the reference](https://doc.rust-lang.org/reference/macros-by-example.h
 > bind the same number of `$i` fragments as `$j` fragments. This means that invoking
 > the macro with `(a, b, c; d, e, f)` is legal and expands to `((a,d), (b,e), (c,f))`,
 > but `(a, b, c; d, e)` is illegal because it does not have the same
-> number. 
+> number.
 
 ## Exercise 7: More Repetition
 
@@ -64,7 +64,7 @@ of comma-separated pairs, of the form `literal => expr,`
 This should construct an empty `HashMap` and `insert` the
 relevant key-value pairs.
 
-You may not edit the `main` function; but it should eventually look like the
+You may not edit the `main` function, but it should eventually look like the
 following:
 
 <!-- If you can see this text, it means you're not looking at the book.   -->
