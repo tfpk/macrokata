@@ -1,7 +1,7 @@
 # Exercise 4: Expression Metavariables
 
 We can now capture fragments of Rust code that are literals, however there are
-other fragments of rust code which can be captured in metavariables. In general,
+other fragments of Rust code which can be captured in metavariables. In general,
 every metavariable is of the form `$<NAME>:<FRAGSPEC>`. `<NAME>` is replaced
 with the name of the metavariable; but `FRAGSPEC` is more interesting. It means
 "Fragment Specifier", and it tells you what sort of fragment of Rust code you
