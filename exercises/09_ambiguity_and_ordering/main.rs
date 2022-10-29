@@ -25,7 +25,7 @@ impl NumberType {
 // Sum together at least two expressions.
 macro_rules! sum {
     ($($expr:expr),+ , $lastexpr:expr) => {
-        $($expr:expr + )+ $lastexpr
+        $($expr + )+ $lastexpr
     }
 }
 
