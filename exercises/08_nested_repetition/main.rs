@@ -8,6 +8,7 @@ fn print_vec<V: std::fmt::Debug>(vec: &Vec<V>) {
 
 ////////// DO NOT CHANGE BELOW HERE /////////
 
+#[allow(clippy::vec_init_then_push)]
 fn main() {
     let my_graph = graph!(
         1 -> (2, 3, 4, 5);
