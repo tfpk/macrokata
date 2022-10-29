@@ -38,8 +38,8 @@ let _false = torf!(f);
 # }
 ```
 
-You'll note the syntax has changed slightly -- we've gone from having one of the
-`() => {}` blocks (which is called a rule), to having two. Macros try to find
+You'll note the syntax has changed slightly: we've gone from having one of the
+`() => {}` blocks (which is called a rule) to having two. Macros try to find
 the first rule that matches, and replaces the macro with the contents of the
 transcriber block.
 
@@ -49,31 +49,31 @@ on *variables*, you're matching on tokens.
 
 ## But what is a "token"
 
-Up until now, we've spoken about "tokens", without explaining what we mean
-further than a handwavey "it's text".
+Up until now, we've spoken about "tokens" without explaining what we mean,
+further than a handwavy "it's text".
 
 When Rust code is compiled, one of the first steps of parsing is turning bytes
 of text into a "token tree", which is a data-structure representing the
 text-fragments of a line of code (so `(3 + (4 + 5))` becomes a token tree containing
-`3`, `+` and another token tree containing `4`, `+` and `5`.
+`3`, `+` and another token tree containing `4`, `+` and `5`).
 
-This means that macro matchers aren't restricted to matching exact text; and that
+This means that macro matchers aren't restricted to matching exact text, and that
 they preserve brackets when matching things.
 
 As you've seen above, macros let you capture all the tokens inside their
 brackets, and then modify the code the write back out based on those tokens.
 This ability to react to different pieces of code without them having been fully
-compiled lets us create powerful extensions to the rust language, using your own
+compiled lets us create powerful extensions to the Rust language, using your own
 syntax.
 
-Further advanced reading about what tokens are can be found [here](https://doc.rust-lang.org/reference/tokens.html)
+Further advanced reading about what tokens are can be found [here.](https://doc.rust-lang.org/reference/tokens.html)
 
 ## Exercise 2: Numbers
 
 Your task is to create a macro called `num` which replaces the words `one`, `two` and `three`
 with the relevant numbers.
 
-You may not edit the `main` function; but it should eventually look like the
+You may not edit the `main` function, but it should eventually look like the
 following:
 
 <!-- If you can see this text, it means you're not looking at the book.   -->

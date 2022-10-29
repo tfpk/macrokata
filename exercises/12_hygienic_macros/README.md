@@ -9,7 +9,7 @@ force lookup to occur inside the crate defining the macro.
 
 ## Disclaimer
 
-(based on the disclaimer for the brilliant
+(Based on the disclaimer for the brilliant
 [cargo-expand](https://github.com/dtolnay/cargo-expand/))
 
 Be aware that macro expansion to text is a lossy process. That means that the
@@ -18,7 +18,7 @@ There should be no expectation that the expanded code can be compiled
 successfully, nor that if it compiles then it behaves the same as the original
 code. In these kata, we try to avoid these issues as far as possible.
 
-For instance the following function returns `3` when compiled ordinarily by Rust
+For instance, the following function returns `3` when compiled ordinarily by Rust,
 but the expanded code compiles and returns `4`.
 
 ```rust
