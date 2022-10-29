@@ -1,10 +1,11 @@
 ////////// DO NOT CHANGE BELOW HERE /////////
 use std::collections::HashMap;
+use std::fmt::Debug;
 
-fn print_pair<K, V>(pair: (K, V)) {
+fn print_pair<K: Debug, V: Debug>(pair: (K, V)) {
     println!("{pair:#?}");
 }
-fn print_hashmap<K, V>(hashmap: &HashMap<K, V>) {
+fn print_hashmap<K: Debug, V: Debug>(hashmap: &HashMap<K, V>) {
     println!("{hashmap:#?}");
 }
 ////////// DO NOT CHANGE ABOVE HERE /////////
