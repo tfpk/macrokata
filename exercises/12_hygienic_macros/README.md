@@ -1,11 +1,41 @@
 # Hygeine
 
-By default, all identifiers referred to in a macro are expanded as-is, and are
-looked up at the macro's invocation site. This can lead to issues if a macro
-refers to an item or macro which isn't in scope at the invocation site. To
-alleviate this, the `$crate` metavariable can be used at the start of a path to
-force lookup to occur inside the crate defining the macro.
+To quote [the reference](https://doc.rust-lang.org/reference/macros-by-example.html#hygiene):
 
+> By default, all identifiers referred to in a macro are expanded as-is, and are
+> looked up at the macro's invocation site. This can lead to issues if a macro
+> refers to an item or macro which isn't in scope at the invocation site. To
+> alleviate this, the `$crate` metavariable can be used at the start of a path to
+> force lookup to occur inside the crate defining the macro.
+
+Here is an example to illustrate (again, taken from the reference linked above):
+
+```rust
+// Definitions in the `helper_macro` crate.
+
+#[macro_export]
+macro_rules! helped {
+    /*
+    () => { helper!() }
+            ^^^^^^ This might lead to an error due to 'helper' not being in scope.
+    */
+    () => { $crate::helper!() }
+}
+
+#[macro_export]
+macro_rules! helper {
+    () => { () }
+}
+
+// Usage in another crate.
+// Note that `helper_macro::helper` is not imported!
+
+use helper_macro::helped;
+
+fn unit() {
+    helped!();
+}
+```
 
 ## Disclaimer
 
