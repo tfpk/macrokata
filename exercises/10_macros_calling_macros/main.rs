@@ -17,7 +17,7 @@ fn print_hashmap<K: Debug, V: Debug>(hashmap: &HashMap<K, V>) {
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 fn main() {
-    let pair = pair!('a' => 1);
+    let pair: (char, u8) = pair!('a' => 1);
 
     print_pair(pair);
 
