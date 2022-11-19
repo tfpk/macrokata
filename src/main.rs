@@ -1,4 +1,3 @@
-use atty;
 use clap::{Parser, Subcommand};
 use imara_diff::intern::InternedInput;
 use imara_diff::{diff, Algorithm, UnifiedDiffBuilder};

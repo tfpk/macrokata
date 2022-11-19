@@ -107,5 +107,5 @@ path = "exercises/12_hygienic_macros/solutions/main.rs"
 
 [dependencies]
 atty = "0.2.14"
-clap = { version = "4.0.17", features = ["derive"] }
-imara-diff = "0.1.3"
+clap = { version = "4.0.26", features = ["derive"] }
+imara-diff = "0.1.5"
