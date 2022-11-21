@@ -24,8 +24,8 @@ fn main() {
     let value = "value";
 
     let my_hashmap = hashmap!(
-        "hash" => "map",
-        "Key" => value,
+        String::from("Hash") => "map",
+        String::from("Key") => value,
     );
 
     print_hashmap(&my_hashmap);
