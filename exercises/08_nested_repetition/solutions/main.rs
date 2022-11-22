@@ -1,5 +1,4 @@
 ////////// DO NOT CHANGE BELOW HERE /////////
-
 fn print_vec<V: std::fmt::Debug>(vec: &Vec<V>) {
     println!("{vec:#?}");
 }
