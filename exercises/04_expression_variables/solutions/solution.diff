@@ -1,0 +1,19 @@
+@@ -1,10 +1,17 @@
+ ////////// DO NOT CHANGE BELOW HERE /////////
+ fn print_result(num: i32) {
+     println!("The result is {num}");
+ }
+ ////////// DO NOT CHANGE ABOVE HERE /////////
+ 
+-// TODO: create `math!()` macro.
++macro_rules! math {
++    ($a:expr, plus, $b:expr) => {
++        $a + $b
++    };
++    (square $a:expr) => {
++        $a * $a
++    };
++}
+ 
+ ////////// DO NOT CHANGE BELOW HERE /////////
+ 
