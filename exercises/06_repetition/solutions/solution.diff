@@ -1,13 +1,16 @@
-@@ -6,6 +6,12 @@
+@@ -1,10 +1,14 @@
+ ////////// DO NOT CHANGE BELOW HERE /////////
+ fn print_success() {
+     println!("Yay, the if statement worked.");
+ }
+ ////////// DO NOT CHANGE ABOVE HERE /////////
  
- // TODO: create `if_any!()` macro.
- 
+-// TODO: create `if_any!()` macro.
 +macro_rules! if_any {
 +    ($($e:expr),+; $block:block) => {
 +        if ($($e)||+) $block
 +    }
 +}
-+
+ 
  ////////// DO NOT CHANGE BELOW HERE /////////
  
- fn main() {
