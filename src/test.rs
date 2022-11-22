@@ -1,8 +1,8 @@
 use imara_diff::intern::InternedInput;
 use imara_diff::{diff, Algorithm, UnifiedDiffBuilder};
+use std::error::Error;
 use std::io::{self, Write};
 use std::process::Command;
-use std::error::Error;
 
 pub fn test(exercise: String) -> Result<(), Box<dyn Error>> {
     let color = if atty::is(atty::Stream::Stdout) {
