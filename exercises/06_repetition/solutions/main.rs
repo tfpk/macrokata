@@ -6,7 +6,7 @@ fn print_success() {
 
 macro_rules! if_any {
     ($($e:expr),+; $block:block) => {
-        if ($($e)||+) $block
+        if $($e)||+ $block
     }
 }
 
