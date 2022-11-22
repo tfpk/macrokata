@@ -1,7 +1,7 @@
 use imara_diff::intern::InternedInput;
 use imara_diff::{diff, Algorithm, UnifiedDiffBuilder};
-use std::path::PathBuf;
 use std::error::Error;
+use std::path::PathBuf;
 
 use std::fs::File;
 use std::io::prelude::*;
