@@ -1,0 +1,24 @@
+@@ -10,9 +10,21 @@
+ }
+ ////////// DO NOT CHANGE ABOVE HERE /////////
+ 
+-// TODO: Create a `pair!()` macro.
++macro_rules! pair {
++    ($i:expr => $e: expr) => {
++        ($i, $e)
++    };
++}
+ 
+-// TODO: Create a `hashmap!()` macro that uses the `pair!()` macro.
++macro_rules! hashmap {
++    ( $($k:expr => $v:expr,)* ) => {
++        {
++            HashMap::from([
++                $(pair!($k => $v)),*
++            ])
++        }
++    }
++}
+ 
+ ////////// DO NOT CHANGE BELOW HERE /////////
+ 
