@@ -1,9 +1,12 @@
-@@ -1,4 +1,9 @@
+@@ -1,4 +1,12 @@
 -// TODO: Create the `curry!()` macro.
 +macro_rules! curry {
 +    (_, $block:block) => {$block};
 +    (($argident:ident : $argtype:ty) => $(($argidents:ident: $argtypes:ty) =>)* _, $block:block) => {
-+        move |$argident: $argtype| curry!($(($argidents: $argtypes) =>)* _, $block)
++        move |$argident: $argtype| {
++            print_curried_argument($argident);
++            curry!($(($argidents: $argtypes) =>)* _, $block)
++        }
 +    };
 +}
  
