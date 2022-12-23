@@ -62,8 +62,13 @@ A good example of this is a curried `add` function. In regular Rust, we'd say `a
 What this means is that we can write `let add_1 = add(1);`, and we now have a function
 which will add 1 to anything.
 
-In this exercise, you will build a macro which creates a curried function.
-The syntax for this function will be `curry!((a: i32) => (b: i32) => _, {a + b})`.
-Each pair of `ident: ty` is an argument, and the last `_` indicates that the
-compiler will infer the return type. The block provided last is, of course,
-the computation we want to do after receiving all the arguments.
+In this exercise, you will build a macro which helps you understand currying,
+and build a curried function in Rust. The syntax for this macro will be
+`curry!((a: i32) => (b: i32) => _, {a + b})`. Each pair of `ident: ty` is an
+argument, and the last `_` indicates that the compiler will infer the return
+type. The block provided last is, of course, the computation we want to do after
+receiving all the arguments.
+
+Each step of the currying process, you should call the macro `print_curried_argument`.
+This should print out the value that you have been provided as an argument.
+
