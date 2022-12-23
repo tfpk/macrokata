@@ -4,11 +4,23 @@ We briefly mentioned in a previous exercise that macros are able to call
 other macros. In this exercise we will look at a brief example of that.
 Before we do, there are three small notes we should mention.
 
-## The `stringify` macro
+## Useful built-in macros
+
+There are two useful macros which the standard library provides - `stringify!()`
+and `concat!()`. Both of them produce static string slices, made up of tokens.
 
 The `stringify!` macro takes tokens and turns them into a `&str` that
 textually represents what those tokens are. For example, `stringify!(1 + 1)`
 will become `"1 + 1"`.
+
+The `concat!` macro takes a comma-separated list of literals, and creates a
+`&str` which concatenates them. For example, `concat!("test", true, 99)` becomes
+`"testtrue99"`.
+
+It's useful to know that if either of these have a macro in their parameter,
+(i.e. `stringify!(test!())`), the internal macro will be expanded first.
+So, if `test!()` expanded to `1 + 1`, your string would be `"1 + 1"`, not 
+`"test!()"`.
 
 ## The `tt` fragment specifier
 
@@ -89,11 +101,13 @@ foo!(3);
 
 ## Exercise 10: Macros Calling Macros
 
-This exercise is similar to the one you completed earlier, building a
-`hashmap!` macro; note that there are some subtle differences.
+In this exercise, you have already been provided with a macro called `digit`, which
+maps the identifiers `zero` through `nine` to a `&str` with their numeric value.
 
-You are being asked to implement two macros: `pair!()`, and `hashmap!()`.
-The first should take two expressions separated by a `=>`, and return a tuple of them.
-The second should construct an array of those tuples, and use `HashMap::from` to
-collect them into a `HashMap`.
+Your task is to write a macro called `number!()` which takes at least one of the identifiers `zero`
+through `nine`, and converts them to a string containing numbers.
 
+For example, `number!(one two three)` should expand to `"123"`.
+
+**Note:** previously exercise 10 was about making a hashmap. The exercise has changed, but the old 
+code is still available in the `archive/` directory. It will be removed on the next update of this book.

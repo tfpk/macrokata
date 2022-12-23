@@ -1,32 +1,24 @@
-////////// DO NOT CHANGE BELOW HERE /////////
-use std::collections::HashMap;
-use std::fmt::Debug;
+macro_rules! digit {
+    (zero) =>  ("0");
+    (one) =>   ("1");
+    (two) =>   ("2");
+    (three) => ("3");
+    (four) =>  ("4");
+    (five) =>  ("5");
+    (six) =>   ("6");
+    (seven) => ("7");
+    (eight) => ("8");
+    (nine) =>  ("9");
+}
 
-fn print_pair<K: Debug, V: Debug>(pair: (K, V)) {
-    println!("{pair:#?}");
-}
-fn print_hashmap<K: Debug, V: Debug>(hashmap: &HashMap<K, V>) {
-    println!("{hashmap:#?}");
-}
 ////////// DO NOT CHANGE ABOVE HERE /////////
 
-// TODO: Create a `pair!()` macro.
-
-// TODO: Create a `hashmap!()` macro that uses the `pair!()` macro.
+// TODO: create `number!()` macro.
 
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 fn main() {
-    let pair: (char, u8) = pair!('a' => 1);
-
-    print_pair(pair);
-
-    let value = "value";
-
-    let my_hashmap = hashmap!(
-        String::from("Hash") => "map",
-        String::from("Key") => value,
-    );
-
-    print_hashmap(&my_hashmap);
+    let my_number = number!(nine three seven two zero).parse::<u32>().unwrap();
+    let my_other_number = number!(one two four six eight zero).parse::<u32>().unwrap();
+    println!("{}", my_number + my_other_number);
 }
