@@ -35,7 +35,7 @@ pub fn update_diff(exercise: &str) -> Result<(), Box<dyn Error>> {
         UnifiedDiffBuilder::new(&input),
     );
 
-    let mut file = File::create(&exercise_diff_path)?;
+    let mut file = File::create(exercise_diff_path)?;
     file.write_all(actual_diff.as_bytes())?;
 
     Ok(())
