@@ -51,3 +51,15 @@ You can run your own code as follows:
 ``` sh
 $ cargo run --bin 01_my_first_macro
 ```
+
+## How To Learn About Procedural Macros
+
+I was originally planning to expand `macrokata` into discussing procedural
+macros as well. As I was researching that, I found dtolnay's superlative [Proc
+Macro Workshop](https://github.com/dtolnay/proc-macro-workshop).
+[Jon Gjengset's video on proc-macros](https://www.youtube.com/watch?v=geovSK3wMB8)
+is also a phenomenal resource (despite its length).
+
+I've put my attempt to write something like that on hold because I think the
+above is better in every way. Do file an issue if there's something that we
+could do here to complement that workshop though.
