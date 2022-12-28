@@ -1,4 +1,4 @@
-# Hygeine
+# Hygiene
 
 To quote [the reference](https://doc.rust-lang.org/reference/macros-by-example.html#hygiene):
 
