@@ -4,20 +4,19 @@ To quote [the reference](https://doc.rust-lang.org/reference/macros-by-example.h
 
 > By default, all identifiers referred to in a macro are expanded as-is, and are
 > looked up at the macro's invocation site. This can lead to issues if a macro
-> refers to an item or macro which isn't in scope at the invocation site. To
+> refers to an item (i.e. function/struct/enum/etc.) or macro which isn't in scope at the invocation site. To
 > alleviate this, the `$crate` metavariable can be used at the start of a path to
 > force lookup to occur inside the crate defining the macro.
 
 Here is an example to illustrate (again, taken from the reference linked above):
 
-```rust
+```rust,ignore
 // Definitions in the `helper_macro` crate.
-
 #[macro_export]
 macro_rules! helped {
     /*
     () => { helper!() }
-            ^^^^^^ This might lead to an error due to 'helper' not being in scope.
+         // ^^^^^^ This might lead to an error due to 'helper' not being in scope.
     */
     () => { $crate::helper!() }
 }
@@ -48,11 +47,11 @@ There should be no expectation that the expanded code can be compiled
 successfully, nor that if it compiles then it behaves the same as the original
 code. In these kata, we try to avoid these issues as far as possible.
 
-For instance, the following function returns `3` when compiled ordinarily by Rust,
-but the expanded code compiles and returns `4`.
+For instance, `answer = 3` when compiled ordinarily by Rust,
+but the expanded code, when compiled, would set `answer = 4`.
 
 ```rust
-fn f() -> i32 {
+fn main() {
     let x = 1;
 
     macro_rules! first_x {
@@ -61,8 +60,9 @@ fn f() -> i32 {
 
     let x = 2;
 
-    x + first_x!()
+    let answer = x + first_x!();
 }
+
 ```
 
 Refer to [The Little Book Of Rust Macros](https://veykril.github.io/tlborm/decl-macros/minutiae/hygiene.html)
