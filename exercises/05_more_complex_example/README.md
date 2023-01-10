@@ -24,12 +24,15 @@ for row in 1..5 {
 # }
 ```
 
+Note that the names of the variables may change (i.e. they could be `row` and
+`col`, or `x` and `y`, or something else).
+
 To complete this task, there more fragment specifiers you will need to know
 about:
 
  - `ident`: an "identifier", like a variable name. `ident` metavariables
     Can be followed by anything.
- - `block`: a "block expression" (anything inside curly braces).
+ - `block`: a "block expression" (curly braces, and their contents).
     Can be followed by anything.
  - `ty`: a type. Can only be followed by `=>`, `,`, `=`, `|`, `;`,
     `:`, `>`, `>>`, `[`, `{`, `as`, `where`, or a `block` metavariable.

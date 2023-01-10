@@ -10,6 +10,10 @@ macros in Rust. When completing each task, there are three goals:
 You should complete the kata in order, as they increase in
 difficulty, and depend on previous kata.
 
+This set of exericses is written for people who have already spent some time
+programming in Rust. Before completing this, work through a rust tutorial
+and build some small programs yourself. 
+
 ## Getting Started
 
 Clone this repository:
@@ -38,7 +42,8 @@ $ cargo build --bin macrokata
 ```
 
 You can find the first kata (`my_first_macro`) inside `exercises/01_my_first_macro`.
-Read the `README.md` file and get started by editing the `main.rs` file.
+Read the [first chapter of the book](https://tfpk.github.io/macrokata/01_README.html)
+and get started by editing the `main.rs` file.
 
 To compare your expanded code to the "goal", use the `test` subcommand:
 

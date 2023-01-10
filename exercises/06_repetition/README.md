@@ -84,7 +84,7 @@ The line `$(my_vec.push($my_literal));+;` is nearly identical to the repetition 
  - `$(` tells us that we're starting a repetition.
  - `my_vec.push($my_literal)` is the code that will be transcribed. `$my_literal` will be replaced with each of the literals specified in the matcher.
  - The `)` means that we're done describing the code that will be transcribed.
- - The `;` means we're separating these lines with semicolons.
+ - The `;` means we're separating these lines with semicolons. Note that if you want, this could also be empty (to indicate they should be joined without anything in the middle).
  - The `+` ends the repetition.
  - The `;` adds a final semicolon after the expansion of everything.
 

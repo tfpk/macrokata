@@ -60,11 +60,13 @@ two token trees not separated by a `,` could not match).
 There is one important restriction when calling a macro using another macro.
 
 When forwarding a matched fragment to another macro-by-example, matchers in the
-second macro will see an opaque AST of the fragment type. The second macro can't
-use literal tokens to match the fragments in the matcher, only a fragment
-specifier of the same type. The `ident`, `lifetime`, and `tt` fragment types are an
-exception, and *can* be matched by literal tokens. The following illustrates this
-restriction:
+second macro will be passed an
+[AST](https://en.wikipedia.org/wiki/Abstract_syntax_tree) of the fragment type,
+which cannot matched on except as a fragment of that type. The second macro
+can't use literal tokens to match the fragments in the matcher, only a fragment
+specifier of the same type. The `ident`, `lifetime`, and `tt` fragment types are
+an exception, and *can* be matched by literal tokens. The following illustrates
+this restriction:
 
 ```rust,ignore
 macro_rules! foo {

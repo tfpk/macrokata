@@ -1,6 +1,6 @@
 ////////// DO NOT CHANGE BELOW HERE /////////
 
-/// This enum should represent what number the user wrote.
+/// This enum should represent what code the user wrote exactly.
 /// Even though to a compiled program there's no difference,
 /// this will let the program tell what sort of code the user wrote.
 #[derive(Debug)]
@@ -36,11 +36,11 @@ macro_rules! get_number_type {
     ( $block:block ) => {
         NumberType::UnknownBecauseBlock($block)
     };
-    ( +$positive:literal ) => {
+    ( $positive:literal ) => {
         NumberType::PositiveNumber($positive)
     };
     ( -$negative:literal ) => {
-        NumberType::NegativeNumber($negative)
+        NumberType::NegativeNumber(-$negative)
     };
 }
 
