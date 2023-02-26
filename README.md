@@ -11,7 +11,7 @@ You should complete the kata in order, as they increase in
 difficulty, and depend on previous kata.
 
 This set of exercises is written for people who have already spent some time
-programming in Rust. Before completing this, work through a rust tutorial
+programming in Rust. Before completing this, work through a Rust tutorial
 and build some small programs yourself. 
 
 ## Getting Started
