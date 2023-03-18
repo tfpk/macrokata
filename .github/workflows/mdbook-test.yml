@@ -99,8 +99,7 @@ jobs:
       - name: Build course with ${{ matrix.language }} translation
         run: mdbook build
 
-      - name: Upload ${{ matrix.language }} translation
-        uses: actions/upload-artifact@v3
+      - uses: actions/upload-artifact@v3
         with:
           name: macrokata-${{ matrix.language }}
           path: book/book/
