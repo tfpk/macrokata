@@ -5,9 +5,17 @@ multilingual = false
 src = "src"
 title = "MacroKata"
 
+[build]
+extra-watch-dirs = ["../po"]
+
 [preprocessor.keeper]
 
 [preprocessor.cmdrun]
 
+[preprocessor.gettext]
+
 [output.html]
 no-section-label = true
+site-url = "/macrokata/"
+git-repository-url = "https://github.com/tfpk/macrokata/"
+additional-css = ["css/language-picker.css"]

@@ -1,0 +1,1981 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: MacroKata\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: src/SUMMARY.md:3
+msgid "00: Introduction"
+msgstr ""
+
+#: src/SUMMARY.md:4
+msgid "01: My First Macro"
+msgstr ""
+
+#: src/SUMMARY.md:5
+msgid "02: Numbers"
+msgstr ""
+
+#: src/SUMMARY.md:6
+msgid "03: Literal Meta-Variables"
+msgstr ""
+
+#: src/SUMMARY.md:7
+msgid "04: Expression Meta-Variables"
+msgstr ""
+
+#: src/SUMMARY.md:8
+msgid "05: More Complex Example"
+msgstr ""
+
+#: src/SUMMARY.md:9
+msgid "06: Repetition"
+msgstr ""
+
+#: src/SUMMARY.md:10
+msgid "07: More Repetition"
+msgstr ""
+
+#: src/SUMMARY.md:11
+msgid "08: Nested Repetition"
+msgstr ""
+
+#: src/SUMMARY.md:12
+msgid "09: Ambiguity and Ordering"
+msgstr ""
+
+#: src/SUMMARY.md:13
+msgid "10: Macros Calling Macros"
+msgstr ""
+
+#: src/SUMMARY.md:14
+msgid "11: Macro Recursion"
+msgstr ""
+
+#: src/SUMMARY.md:15
+msgid "12: Macro Hygiene"
+msgstr ""
+
+#: src/SUMMARY.md:16
+msgid "13: Scoping, Importing and Exporting"
+msgstr ""
+
+#: src/SUMMARY.md:17
+msgid "14: Extra Reading"
+msgstr ""
+
+#: src/index.md:1
+msgid "# MacroKata"
+msgstr ""
+
+#: src/index.md:3
+msgid ""
+"Welcome to MacroKata, a set of exercises which you can use to learn how to "
+"write\n"
+"macros in Rust. When completing each task, there are three goals:"
+msgstr ""
+
+#: src/index.md:6
+msgid ""
+" - Get your code to compile without warnings or errors.\n"
+" - Get your code to \"work correctly\" (i.e. produce the same output)\n"
+" - Importantly, *generate the same code* as what the sample solution does."
+msgstr ""
+
+#: src/index.md:10
+msgid ""
+"You should complete the kata in order, as they increase in\n"
+"difficulty, and depend on previous kata."
+msgstr ""
+
+#: src/index.md:13
+msgid ""
+"This set of exercises is written for people who have already spent some "
+"time\n"
+"programming in Rust. Before completing this, work through a Rust tutorial\n"
+"and build some small programs yourself. "
+msgstr ""
+
+#: src/index.md:17
+msgid "## Getting Started"
+msgstr ""
+
+#: src/index.md:19
+msgid "Clone this repository:"
+msgstr ""
+
+#: src/index.md:21
+msgid ""
+"``` sh\n"
+"$ git clone https://www.github.com/tfpk/macrokata/\n"
+"```"
+msgstr ""
+
+#: src/index.md:25
+msgid ""
+"You will also need to install the Rust \"nightly\" toolchain, so that we can "
+"show\n"
+"expanded macros:"
+msgstr ""
+
+#: src/index.md:28
+msgid ""
+"``` sh\n"
+"$ rustup toolchain install nightly\n"
+"```"
+msgstr ""
+
+#: src/index.md:32
+msgid "Next, install `cargo-expand`:"
+msgstr ""
+
+#: src/index.md:34
+msgid ""
+"``` sh\n"
+"$ cargo install cargo-expand\n"
+"```"
+msgstr ""
+
+#: src/index.md:38
+msgid "Build the main binary provided with this repo:"
+msgstr ""
+
+#: src/index.md:40
+msgid ""
+"``` sh\n"
+"$ cargo build --bin macrokata\n"
+"```"
+msgstr ""
+
+#: src/index.md:44
+msgid ""
+"You can find the first kata (`my_first_macro`) inside "
+"`exercises/01_my_first_macro`.\n"
+"Read the [first chapter of the "
+"book](https://tfpk.github.io/macrokata/01_README.html)\n"
+"and get started by editing the `main.rs` file."
+msgstr ""
+
+#: src/index.md:48
+msgid "To compare your expanded code to the \"goal\", use the `test` subcommand:"
+msgstr ""
+
+#: src/index.md:50
+msgid ""
+"``` sh\n"
+"$ cargo run -- test 01_my_first_macro\n"
+"```"
+msgstr ""
+
+#: src/index.md:54
+msgid "You can run your own code as follows:"
+msgstr ""
+
+#: src/index.md:56
+msgid ""
+"``` sh\n"
+"$ cargo run --bin 01_my_first_macro\n"
+"```"
+msgstr ""
+
+#: src/index.md:60
+msgid "## How To Learn About Procedural Macros"
+msgstr ""
+
+#: src/index.md:62
+msgid ""
+"I was originally planning to expand `macrokata` into discussing procedural\n"
+"macros as well. As I was researching that, I found dtolnay's superlative "
+"[Proc\n"
+"Macro Workshop](https://github.com/dtolnay/proc-macro-workshop).\n"
+"[Jon Gjengset's video on "
+"proc-macros](https://www.youtube.com/watch?v=geovSK3wMB8)\n"
+"is also a phenomenal resource (despite its length)."
+msgstr ""
+
+#: src/index.md:68
+msgid ""
+"I've put my attempt to write something like that on hold because I think "
+"the\n"
+"above is better in every way. Do file an issue if there's something that we\n"
+"could do here to complement that workshop though."
+msgstr ""
+
+#: src/01_README.md:1
+msgid "# Exercise 1: My First Macro"
+msgstr ""
+
+#: src/01_README.md:3
+msgid ""
+"Welcome to this introduction to Rust's Macro system.\n"
+"To complete each exercise (including this one), you should:"
+msgstr ""
+
+#: src/01_README.md:6
+msgid ""
+"* [ ] Read this file to understand the theory being tested, and what\n"
+"      task you will be asked to complete.\n"
+"* [ ] Try and complete the `main.rs` file.\n"
+"* [ ] Test to see if your macro creates the same code we have, using\n"
+"      `cargo run -- test 01_my_first_macro`.\n"
+"* [ ] Run your code, using `cargo run --bin 01_my_first_macro`, to see what "
+"it does."
+msgstr ""
+
+#: src/01_README.md:14
+msgid "## What are Macros?"
+msgstr ""
+
+#: src/01_README.md:16
+msgid ""
+"Rust's macros are a way of using code to generate code before compilation.\n"
+"Because the generation happens before the compiler does anything, you are "
+"given\n"
+"much more flexibility in what you can write."
+msgstr ""
+
+#: src/01_README.md:20
+msgid ""
+"This allows you to break many of the syntax rules Rust imposes on you. For\n"
+"example, Rust does not allow \"variadic\" functions: functions with "
+"variable\n"
+"numbers of arguments. This makes a `println` function impossible -- it "
+"would\n"
+"have to take any number of arguments (`println(\"hello\")` and "
+"`println(\"{}\",\n"
+"123)`, for example)."
+msgstr ""
+
+#: src/01_README.md:26
+msgid ""
+"Rust gets around this rule by using a `println!` macro. Before `println!` "
+"is\n"
+"compiled, Rust rewrites the macro into a function which takes a single array "
+"of\n"
+"arguments. That way, even though it looks to you like there are multiple\n"
+"arguments, once it's compiled there's always just one array."
+msgstr ""
+
+#: src/01_README.md:31
+msgid ""
+"Macros can range from simple (e.g. reducing duplicated code) to complex "
+"(e.g.\n"
+"implementing HTML parsing inside of Rust). This guide aims to build you up "
+"from\n"
+"the simple to the complex."
+msgstr ""
+
+#: src/01_README.md:35
+msgid ""
+"As mentioned, you've already used macros: `println!` for example, is a "
+"macro.\n"
+"`vec![]` is as well. Macros always have a name. To run a macro, call its "
+"name\n"
+"with a bang (`!`) afterwards, and then brackets (any of `()`, `[]` or `{}`)\n"
+"containing arguments."
+msgstr ""
+
+#: src/01_README.md:40
+msgid ""
+"In other words, to run the macro `my_macro`, you'd say `my_macro!()` or\n"
+"`my_macro![]` or `my_macro!{}`."
+msgstr ""
+
+#: src/01_README.md:43
+msgid "## Macro Rules vs. Procedural Macros"
+msgstr ""
+
+#: src/01_README.md:45
+msgid ""
+"Rust has two macros systems, but this guide will only focus on one.\n"
+"`macro_rules!` are a special language to describe how to transform\n"
+"code into valid Rust code: this is the system we will focus on.\n"
+"Procedural macros (proc-macros) are a method of writing a Rust function\n"
+"which transforms an input piece of Rust code into an output piece."
+msgstr ""
+
+#: src/01_README.md:51
+msgid ""
+"Proc Macros are useful, but complex, and not the subject of this guide.\n"
+"[You can read more about them "
+"here.](https://doc.rust-lang.org/reference/procedural-macros.html)"
+msgstr ""
+
+#: src/01_README.md:54
+msgid "## How do I create one?"
+msgstr ""
+
+#: src/01_README.md:56
+msgid "The simplest form of macro looks like this:"
+msgstr ""
+
+#: src/01_README.md:58
+msgid ""
+"```rust\n"
+"macro_rules! my_macro {\n"
+"    () => {\n"
+"        3\n"
+"    }\n"
+"}\n"
+"\n"
+"# fn main() {\n"
+"let _value = my_macro!();\n"
+"# }\n"
+"```"
+msgstr ""
+
+#: src/01_README.md:70
+msgid ""
+"The `macro_rules!` instructs the compiler that there is a new macro you are\n"
+"defining. It is followed by the name of the macro, `my_macro`. The next "
+"line\n"
+"specifies a \"rule\". Inside the normal brackets is a \"matcher\" -- some "
+"text\n"
+"(formally, we refer to the text as \"tokens\") -- which Rust will use to "
+"decide\n"
+"which rule to execute. Inside the curly brackets is a \"transcriber\", which "
+"is\n"
+"what Rust will replace `my_macro!()` with."
+msgstr ""
+
+#: src/01_README.md:77
+msgid "So, `my_macro!()` will be replaced by `3`."
+msgstr ""
+
+#: src/01_README.md:80
+msgid "## Exercise 1: My First Macro"
+msgstr ""
+
+#: src/01_README.md:82
+msgid ""
+"Your task is to write a macro named `show_output!()` which calls the\n"
+"`show_output()` function."
+msgstr ""
+
+#: src/01_README.md:85
+#: src/02_README.md:76
+#: src/03_README.md:101
+#: src/04_README.md:87
+#: src/07_README.md:67
+#: src/08_README.md:33
+#: src/09_README.md:74
+msgid ""
+"You may not edit the `main` function, but it should eventually look like "
+"the\n"
+"following:"
+msgstr ""
+
+#: src/01_README.md:88
+#: src/02_README.md:79
+#: src/03_README.md:104
+#: src/04_README.md:90
+#: src/05_README.md:43
+#: src/06_README.md:106
+#: src/07_README.md:70
+#: src/08_README.md:36
+#: src/09_README.md:77
+msgid ""
+"<!-- If you can see this text, it means you're not looking at the book.   "
+"-->\n"
+"<!-- Run the cargo command below (without `cmdrun`) to see the real code. -->"
+msgstr ""
+
+#: src/01_README.md:90
+msgid ""
+"```rust,ignore\n"
+"<!-- cmdrun cargo run -- goal 01_my_first_macro -->\n"
+"```"
+msgstr ""
+
+#: src/02_README.md:1
+msgid "# Exercise 2: Numbers"
+msgstr ""
+
+#: src/02_README.md:3
+msgid "As a reminder, to complete this exercise:"
+msgstr ""
+
+#: src/02_README.md:5
+msgid ""
+"* [ ] Read this file to understand the theory being tested, and what\n"
+"      task you will be asked to complete.\n"
+"* [ ] Try and complete the `main.rs` file.\n"
+"* [ ] Test to see if your macro creates the same code we have; using\n"
+"      `cargo run -- test 02_numbers`.\n"
+"* [ ] Run your code, using `cargo run --bin 02_numbers`, to see what it does."
+msgstr ""
+
+#: src/02_README.md:12
+msgid "## Macros With Arguments"
+msgstr ""
+
+#: src/02_README.md:14
+msgid ""
+"Macros would be pretty useless if you couldn't modify their behaviour based "
+"on\n"
+"input from the programmer. To this end, let's see how we can vary what our "
+"macro\n"
+"does."
+msgstr ""
+
+#: src/02_README.md:18
+msgid ""
+"The simplest way of doing this is to have our macro behave differently if\n"
+"different tokens are placed in-between the matcher. As a reminder, the "
+"matcher\n"
+"is the bit in each rule before the `=>`."
+msgstr ""
+
+#: src/02_README.md:22
+msgid ""
+"Below we see a macro which will replace itself with `true` if the letter `t` "
+"is\n"
+"inside the brackets; and `f` otherwise."
+msgstr ""
+
+#: src/02_README.md:26
+msgid ""
+"``` rust\n"
+"macro_rules! torf {\n"
+"    (t) => {\n"
+"        true\n"
+"    };\n"
+"    (f) => {\n"
+"        false\n"
+"    };\n"
+"}\n"
+"# fn main() {\n"
+"let _true = torf!(t);\n"
+"let _false = torf!(f);\n"
+"# }\n"
+"```"
+msgstr ""
+
+#: src/02_README.md:41
+msgid ""
+"You'll note the syntax has changed slightly: we've gone from having one of "
+"the\n"
+"`() => {}` blocks (which is called a rule) to having two. Macros try to "
+"find\n"
+"the first rule that matches, and replaces the macro with the contents of "
+"the\n"
+"transcriber block."
+msgstr ""
+
+#: src/02_README.md:46
+msgid ""
+"Macros are very similar to a `match` statement because they find the first "
+"match\n"
+"and take action based on that; but it's important to note that you're not "
+"matching\n"
+"on *variables*, you're matching on tokens."
+msgstr ""
+
+#: src/02_README.md:50
+msgid "## But what is a \"token\""
+msgstr ""
+
+#: src/02_README.md:52
+msgid ""
+"Up until now, we've spoken about \"tokens\" without explaining what we "
+"mean,\n"
+"further than a handwavy \"it's text\"."
+msgstr ""
+
+#: src/02_README.md:55
+msgid ""
+"When Rust code is compiled, one of the first steps of parsing is turning "
+"bytes\n"
+"of text into a \"token tree\", which is a data-structure representing the\n"
+"text-fragments of a line of code (so `(3 + (4 + 5))` becomes a token tree "
+"containing\n"
+"`3`, `+` and another token tree containing `4`, `+` and `5`)."
+msgstr ""
+
+#: src/02_README.md:60
+msgid ""
+"This means that macro matchers aren't restricted to matching exact text, and "
+"that\n"
+"they preserve brackets when matching things."
+msgstr ""
+
+#: src/02_README.md:63
+msgid ""
+"As you've seen above, macros let you capture all the tokens inside their\n"
+"brackets, and then modify the code the write back out based on those "
+"tokens.\n"
+"This ability to react to different pieces of code without them having been "
+"fully\n"
+"compiled lets us create powerful extensions to the Rust language, using your "
+"own\n"
+"syntax."
+msgstr ""
+
+#: src/02_README.md:69
+msgid ""
+"Further advanced reading about what tokens are can be found "
+"[here.](https://doc.rust-lang.org/reference/tokens.html)"
+msgstr ""
+
+#: src/02_README.md:71
+msgid "## Exercise 2: Numbers"
+msgstr ""
+
+#: src/02_README.md:73
+msgid ""
+"Your task is to create a macro called `num` which replaces the words `one`, "
+"`two` and `three`\n"
+"with the relevant numbers."
+msgstr ""
+
+#: src/02_README.md:81
+msgid ""
+"```rust,ignore\n"
+"<!-- cmdrun cargo run -- goal 02_numbers -->\n"
+"```"
+msgstr ""
+
+#: src/03_README.md:1
+msgid "# Exercise 3: Literal Metavariables"
+msgstr ""
+
+#: src/03_README.md:3
+msgid ""
+"In the last exercise, we saw how we could change the behaviour of\n"
+"a macro based on text inside the brackets. This is great, but it's\n"
+"basically an if statement on the text inside the brackets: it's\n"
+"very simplistic."
+msgstr ""
+
+#: src/03_README.md:8
+msgid ""
+"Now we will introduce the concept of a \"metavariable\". Metavariables "
+"capture a\n"
+"particular part of the text inside the macro's brackets, and let you reuse "
+"it."
+msgstr ""
+
+#: src/03_README.md:11
+msgid ""
+"The syntax for a metavariable is simple. To explain the syntax, see the "
+"example\n"
+"below:"
+msgstr ""
+
+#: src/03_README.md:14
+msgid ""
+"```rust,ignore\n"
+"macro_rules! do_thing {\n"
+"    (print $metavar:literal) => {\n"
+"        println!(\"{}\", $metavar)\n"
+"    };\n"
+"}\n"
+"```"
+msgstr ""
+
+#: src/03_README.md:22
+msgid ""
+"The `$metavar:literal` is saying that you're capturing any `literal` (which "
+"is\n"
+"something like `'a'`, or `3`, or `\"hello\"`), and naming it `metavar`. "
+"Then,\n"
+"`$metavar` inside the `println!` is saying to \"fill in\" that space with "
+"whatever\n"
+"`metavar` is."
+msgstr ""
+
+#: src/03_README.md:27
+msgid "For an invocation like"
+msgstr ""
+
+#: src/03_README.md:29
+msgid ""
+"```rust\n"
+"# macro_rules! do_thing {\n"
+"#     (print $metavar:literal) => {\n"
+"#         println!(\"{}\", $metavar)\n"
+"#     };\n"
+"# }\n"
+"#\n"
+"# fn main() {\n"
+"do_thing!(print 3);\n"
+"# }\n"
+"```"
+msgstr ""
+
+#: src/03_README.md:41
+msgid ""
+"Rust understands that `metavar` means `3`. So, when doing substitution,\n"
+"it starts by writing"
+msgstr ""
+
+#: src/03_README.md:44
+msgid ""
+"```rust,ignore\n"
+"println!(\"{}\", $metavar);\n"
+"```"
+msgstr ""
+
+#: src/03_README.md:48
+msgid "and then substitutes `3` for `$metavar`:"
+msgstr ""
+
+#: src/03_README.md:50
+msgid ""
+"``` rust\n"
+"# fn main() {\n"
+"println!(\"{}\", 3);\n"
+"# }\n"
+"```"
+msgstr ""
+
+#: src/03_README.md:56
+msgid "## But what about types?"
+msgstr ""
+
+#: src/03_README.md:58
+msgid ""
+"You might be wondering why we haven't said anything about the *type* of the\n"
+"literal. It turns out that the type doesn't matter during macro expansion. "
+"Rather\n"
+"than needing the type, Rust just needs to know what sort of syntax to "
+"expect. If\n"
+"you tried to provide a variable name, and you needed a literal, Rust will "
+"throw\n"
+"an error. If you needed a *string* literal, and you provided a *char* "
+"literal,\n"
+"then Rust will happily expand the code. It'll throw an error later on in "
+"the\n"
+"compilation process, as if you had written the expanded code."
+msgstr ""
+
+#: src/03_README.md:66
+msgid "## Why do these examples avoid using macros?"
+msgstr ""
+
+#: src/03_README.md:68
+msgid ""
+"The example above uses the `println!` macro inside the `print_me`\n"
+"macro. Rust is totally fine with this! However, `macrokata` tries\n"
+"to avoid (as much as possible) using macros we didn't define inside\n"
+"the main function. The reason for this is that, if we did use `println!`\n"
+"you would see its expansion as well. That could be confusing, since"
+msgstr ""
+
+#: src/03_README.md:74
+msgid ""
+"```rust,ignore\n"
+"print(\"some text\")\n"
+"```"
+msgstr ""
+
+#: src/03_README.md:78
+msgid "is much easier to read than"
+msgstr ""
+
+#: src/03_README.md:80
+msgid ""
+"```rust,ignore\n"
+"    {\n"
+"        ::std::io::_print(\n"
+"            ::core::fmt::Arguments::new_v1(\n"
+"                &[\"some text\"],\n"
+"                &[],\n"
+"            ),\n"
+"        );\n"
+"    };\n"
+"\n"
+"```"
+msgstr ""
+
+#: src/03_README.md:92
+msgid "## Exercise 3: Literal Meta-Variables"
+msgstr ""
+
+#: src/03_README.md:94
+msgid "Your task is to create a macro which can perform two small bits of math:"
+msgstr ""
+
+#: src/03_README.md:96
+msgid ""
+" - The syntax `math!(3 plus 5)` should expand to `3 + 5`, where `3` and `5`\n"
+"   could be any literal.\n"
+" - The syntax `math!(square 2)` should expand to `2 * 2`, where `2` could be "
+"any\n"
+"   literal."
+msgstr ""
+
+#: src/03_README.md:106
+msgid ""
+"```rust,ignore\n"
+"<!-- cmdrun cargo run -- goal 03_literal_variables -->\n"
+"```"
+msgstr ""
+
+#: src/04_README.md:1
+msgid "# Exercise 4: Expression Metavariables"
+msgstr ""
+
+#: src/04_README.md:3
+msgid ""
+"We can now capture fragments of Rust code that are literals, however there "
+"are\n"
+"other fragments of Rust code which can be captured in metavariables. In "
+"general,\n"
+"every metavariable is of the form `$<NAME>:<FRAGSPEC>`. `<NAME>` is "
+"replaced\n"
+"with the name of the metavariable, but `FRAGSPEC` is more interesting. It "
+"means\n"
+"\"Fragment Specifier\", and it tells you what sort of fragment of Rust code "
+"you\n"
+"intend to match. We've already seen `literal`, but another common fragment\n"
+"specifier is `expr`, which allows you to capture any Rust expression (for\n"
+"example, `(3 * 5)` or `function_call() + CONSTANT`)."
+msgstr ""
+
+#: src/04_README.md:12
+msgid ""
+"Using this specifier is nearly identical to using the `literal` fragment\n"
+"specifier: `$x:expr` indicates a metavariable, which is an expression, "
+"named\n"
+"`x`."
+msgstr ""
+
+#: src/04_README.md:16
+msgid ""
+"It's also worth mentioning the fragment specifier `stmt`, which is similar "
+"to\n"
+"`expr`, but allows Rust statements too, like `let` statements."
+msgstr ""
+
+#: src/04_README.md:19
+msgid "# Macros and the Precedence of Operators"
+msgstr ""
+
+#: src/04_README.md:21
+msgid ""
+"Macros do not affect the order of operations. If the expression `3 * "
+"math!(4,\n"
+"plus, 2)` expands to `3 * 4 + 2`, you might expect Rust to interpret it as\n"
+"`3 * (4 + 2)`. Since Rust removes the macro before evaluating mathematical\n"
+"operations though, Rust just sees `3 * 4 + 2`, which it evaluates as `14`."
+msgstr ""
+
+#: src/04_README.md:26
+msgid "# \"Follow-set Ambiguity Rules\""
+msgstr ""
+
+#: src/04_README.md:28
+msgid ""
+"The Rust parser needs to have some way of knowing where a metavariable "
+"ends.\n"
+"If it didn't, expressions like `$first:expr $second:expr` would be confusing "
+"to\n"
+"parse in some circumstances. For example, how would you parse `a * b * c * "
+"d`?\n"
+"Would `first` be `a`, and `second` be `*b * c * d`? Or would `first` be `a * "
+"b * c`,\n"
+"and `second` be `* d`?"
+msgstr ""
+
+#: src/04_README.md:34
+msgid ""
+"To avoid this problem entirely, Rust has a set of rules called the "
+"\"follow-set\n"
+"ambiguity rules\". These tell you which tokens are allowed to follow a\n"
+"metavariable (and which aren't)."
+msgstr ""
+
+#: src/04_README.md:38
+msgid ""
+"For `literal`s, this rule is simple: anything can follow a literal\n"
+"metavariable."
+msgstr ""
+
+#: src/04_README.md:41
+msgid ""
+"For `expr` (and its friend `stmt`) the rules are much more restrictive: "
+"they\n"
+"can only be followed by `=>` or `,` or `;`."
+msgstr ""
+
+#: src/04_README.md:44
+msgid "This means that building a matcher like"
+msgstr ""
+
+#: src/04_README.md:46
+msgid ""
+"``` rust,ignore\n"
+"macro_rules! broken_macro {\n"
+"    ($a:expr please) => $a\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    // Fails to compile!\n"
+"    let value = broken_macro!(3 + 5 please);\n"
+"}\n"
+"```"
+msgstr ""
+
+#: src/04_README.md:57
+msgid "will give you this compiler error:"
+msgstr ""
+
+#: src/04_README.md:59
+msgid ""
+"``` rust,ignore\n"
+"error: `$a:expr` is followed by `please`, which is not allowed for `expr` "
+"fragments\n"
+" --> broken_macro.rs:2:14\n"
+"  |\n"
+"2 |     ($a:expr please) => { $a }\n"
+"  |              ^^^^^^ not allowed after `expr` fragments\n"
+"  |\n"
+"  = note: allowed there are: `=>`, `,` or `;`\n"
+"```"
+msgstr ""
+
+#: src/04_README.md:70
+msgid ""
+"As we encounter more expression types, we'll make sure to mention their\n"
+"follow-set rules, but [this page in the Rust\n"
+"reference](https://doc.rust-lang.org/reference/macros-by-example.html#follow-set-ambiguity-restrictions)\n"
+"has a comprehensive list of the rules for each fragment specifier type."
+msgstr ""
+
+#: src/04_README.md:76
+msgid "## Exercise 4: Expression Variables"
+msgstr ""
+
+#: src/04_README.md:78
+msgid ""
+"In this task, you will be completing a similar task to the previous one.\n"
+"Last time, your macro should have worked with any *literal*, but now we "
+"would\n"
+"like a macro which works with any *expression*."
+msgstr ""
+
+#: src/04_README.md:82
+msgid ""
+" - The syntax `math!(3, plus, (5 + 6))` should expand to `3 + (5 + 6)`, "
+"where\n"
+"   `3` and `(5 + 6)` could be any expression.\n"
+" - The syntax `math!(square my_expression)` should expand to `my_expression "
+"*\n"
+"   my_expression`, where `my_expression` could be any expression."
+msgstr ""
+
+#: src/04_README.md:92
+msgid ""
+"```rust,ignore\n"
+"<!-- cmdrun cargo run -- goal 04_expression_variables -->\n"
+"```"
+msgstr ""
+
+#: src/05_README.md:1
+msgid "# Exercise 5: A More Complex Example"
+msgstr ""
+
+#: src/05_README.md:3
+msgid ""
+"In this task, we'll be implementing code to make the following syntax "
+"possible:"
+msgstr ""
+
+#: src/05_README.md:5
+msgid ""
+"```rust,ignore\n"
+"# fn main() {\n"
+"for_2d!(row <i32> in 1..5, col <i32> in 2..7, {\n"
+"    // code\n"
+"});\n"
+"#}\n"
+"```"
+msgstr ""
+
+#: src/05_README.md:13
+msgid "Ignoring extra curly braces, this code should translate to"
+msgstr ""
+
+#: src/05_README.md:15
+msgid ""
+"``` rust\n"
+"# fn main() {\n"
+"for row in 1..5 {\n"
+"    let row: i32 = row;\n"
+"    for col in 2..7 {\n"
+"        let col: i32 = col;\n"
+"        // code\n"
+"    }\n"
+"}\n"
+"# }\n"
+"```"
+msgstr ""
+
+#: src/05_README.md:27
+msgid ""
+"Note that the names of the variables may change (i.e. they could be `row` "
+"and\n"
+"`col`, or `x` and `y`, or something else)."
+msgstr ""
+
+#: src/05_README.md:30
+msgid ""
+"To complete this task, there more fragment specifiers you will need to know\n"
+"about:"
+msgstr ""
+
+#: src/05_README.md:33
+msgid ""
+" - `ident`: an \"identifier\", like a variable name. `ident` metavariables\n"
+"    Can be followed by anything.\n"
+" - `block`: a \"block expression\" (curly braces, and their contents).\n"
+"    Can be followed by anything.\n"
+" - `ty`: a type. Can only be followed by `=>`, `,`, `=`, `|`, `;`,\n"
+"    `:`, `>`, `>>`, `[`, `{`, `as`, `where`, or a `block` metavariable."
+msgstr ""
+
+#: src/05_README.md:40
+msgid ""
+"As a reminder, you may not edit the `main` function, but it should "
+"eventually\n"
+"look like the following:"
+msgstr ""
+
+#: src/05_README.md:45
+msgid ""
+"```rust,ignore\n"
+"<!-- cmdrun cargo run -- goal 05_more_complex_example -->\n"
+"```"
+msgstr ""
+
+#: src/06_README.md:1
+msgid "# Exercise 6: Repetition"
+msgstr ""
+
+#: src/06_README.md:3
+msgid ""
+"Hopefully, you're now feeling pretty confident with metavariables. One of\n"
+"the first justifications we gave for macros was their ability to simulate\n"
+"\"variadic\" functions (functions which have a variable number of "
+"arguments). In\n"
+"this exercise, we'll have a look at how you can implement them yourself."
+msgstr ""
+
+#: src/06_README.md:8
+msgid ""
+"A simple approach might be to write a rule for each number of arguments. "
+"For\n"
+"example, one might write"
+msgstr ""
+
+#: src/06_README.md:11
+msgid ""
+"```rust\n"
+"macro_rules! listing_literals {\n"
+"    (the $e1:literal) => {\n"
+"        {\n"
+"            let mut my_vec = Vec::new();\n"
+"            my_vec.push($e1);\n"
+"            my_vec\n"
+"        }\n"
+"    };\n"
+"    (the $e1:literal and the $e2:literal) => {\n"
+"        {\n"
+"            let mut my_vec = Vec::new();\n"
+"            my_vec.push($e1);\n"
+"            my_vec.push($e2);\n"
+"            my_vec\n"
+"        }\n"
+"    };\n"
+"    (the $e1:literal and the $e2:literal and the $e3:literal) => {\n"
+"        {\n"
+"            let mut my_vec = Vec::new();\n"
+"            my_vec.push($e1);\n"
+"            my_vec.push($e2);\n"
+"            my_vec.push($e3);\n"
+"            my_vec\n"
+"        }\n"
+"    }\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let vec: Vec<&str> = listing_literals!(the \"lion\" and the \"witch\" "
+"and the \"wardrobe\");\n"
+"    assert_eq!(vec, vec![\"lion\", \"witch\", \"wardrobe\"]);\n"
+"    let vec: Vec<i32> = listing_literals!(the 9 and the 5);\n"
+"    assert_eq!(vec, vec![9, 5]);\n"
+"}\n"
+"```"
+msgstr ""
+
+#: src/06_README.md:47
+msgid ""
+"This is very clunky, and involves a large amount of repeated code. Imagine "
+"doing\n"
+"this for 10 arguments! What if we could say that we want *a variable number* "
+"of\n"
+"a particular patterns? That would let us say \"give me any number of "
+"`$e:expr`\n"
+"tokens, and I'll tell you what to do with them'\"."
+msgstr ""
+
+#: src/06_README.md:52
+msgid "Macro repetitions let us do just that. They consist of three things:"
+msgstr ""
+
+#: src/06_README.md:53
+msgid ""
+" - A group of tokens that we want to match repeatedly.\n"
+" - Optionally, a separator token (which tells the parser what to look for "
+"between each match).\n"
+" - Either `+`, `*` or `?`, which says how many times to expect a match. `+` "
+"means \"at least once\".\n"
+"   `*` means \"any number of times, including 0 times\". `?` means \"either "
+"0 times, or 1 time\"."
+msgstr ""
+
+#: src/06_README.md:58
+msgid ""
+"Let's look at an example of a macro repetition, to parse the exact macro\n"
+"we showed above."
+msgstr ""
+
+#: src/06_README.md:61
+msgid ""
+"The matcher we would use for this is `$(the $my_literal:literal)and+`.\n"
+"To break that down:"
+msgstr ""
+
+#: src/06_README.md:64
+msgid ""
+" - `$(` means that we're starting a repetition.\n"
+" - Inside the brackets, `the $my_literal:literal` is the pattern we're "
+"matching. We'll match the exact text \"the\", and then a literal token.\n"
+" - The `)` means that we're done describing the pattern to match.\n"
+" - The `and` is optional, but it is the \"separator\": a token you can use "
+"to seperate multiple repetitions. Commonly it's `,` to comma-separate "
+"things.\n"
+" - Here, we use `+`, which means the repetition must happen at least once. "
+"`*` would have worked just as well if we were okay with an empty `Vec`."
+msgstr ""
+
+#: src/06_README.md:70
+msgid ""
+"What's now left is to use the matched values. To do this, the rule would be "
+"something like:"
+msgstr ""
+
+#: src/06_README.md:72
+msgid ""
+"```rust,ignore\n"
+" $(the $my_literal:literal)and+ => {\n"
+"    {\n"
+"        let mut my_vec = Vec::new();\n"
+"        $(my_vec.push($my_literal));+;\n"
+"        my_vec\n"
+"    }\n"
+"}\n"
+"```"
+msgstr ""
+
+#: src/06_README.md:82
+msgid ""
+"The line `$(my_vec.push($my_literal));+;` is nearly identical to the "
+"repetition we saw above, but to break it down:"
+msgstr ""
+
+#: src/06_README.md:84
+msgid ""
+" - `$(` tells us that we're starting a repetition.\n"
+" - `my_vec.push($my_literal)` is the code that will be transcribed. "
+"`$my_literal` will be replaced with each of the literals specified in the "
+"matcher.\n"
+" - The `)` means that we're done describing the code that will be "
+"transcribed.\n"
+" - The `;` means we're separating these lines with semicolons. Note that if "
+"you want, this could also be empty (to indicate they should be joined "
+"without anything in the middle).\n"
+" - The `+` ends the repetition.\n"
+" - The `;` adds a final semicolon after the expansion of everything."
+msgstr ""
+
+#: src/06_README.md:91
+msgid "So this will expand into the same code we saw above!"
+msgstr ""
+
+#: src/06_README.md:93
+msgid ""
+"It's worth noting that we've used an extra set of curly braces in our "
+"transcriber. This is because if you don't\n"
+"put the code in a block, the code will look like `let whatever = let mut "
+"my_vec = Vec::new();`, which doesn't make sense."
+msgstr ""
+
+#: src/06_README.md:96
+msgid ""
+"If you put the code in a curly brace, then the right-hand side of the `=` "
+"sign will be a block which returns `my_vec`."
+msgstr ""
+
+#: src/06_README.md:98
+msgid "## Exercise 6: Repetition"
+msgstr ""
+
+#: src/06_README.md:100
+msgid ""
+"In this task, you will be creating an `if_any!` macro. If any of the first "
+"arguments are true,\n"
+"it should execute the block which is the last argument."
+msgstr ""
+
+#: src/06_README.md:103
+msgid ""
+"You may not edit the `main` function, but once you have completed the "
+"exercise, your `if_any!` macro should expand to look like the\n"
+"following:"
+msgstr ""
+
+#: src/06_README.md:108
+msgid ""
+"```rust,ignore\n"
+"<!-- cmdrun cargo run -- goal 06_repetition -->\n"
+"```"
+msgstr ""
+
+#: src/07_README.md:1
+msgid "# Exercise 7: More Repetition"
+msgstr ""
+
+#: src/07_README.md:3
+msgid ""
+"This exercise is going to also cover writing repetitions, but now involving "
+"more than\n"
+"one metavariable. Don't worry: the syntax is the exact same as what you've "
+"seen before."
+msgstr ""
+
+#: src/07_README.md:6
+msgid ""
+"Before you start, let's just quickly cover the different ways you can use a "
+"metavariable\n"
+"within a repetition."
+msgstr ""
+
+#: src/07_README.md:9
+msgid "## Multiple Metavariables in One Repetition"
+msgstr ""
+
+#: src/07_README.md:11
+msgid ""
+"You can indicate that two metavariables should be used in a single "
+"repetition."
+msgstr ""
+
+#: src/07_README.md:13
+msgid ""
+"For example, `( $($i:ident is $e:expr),+ )` would match `my_macro!(pi is "
+"3.14, tau is 6.28)`.\n"
+"You would end up with `$i` having matched `pi` and `tau`; and `$e` having "
+"matched `3.14` and\n"
+"`6.28`."
+msgstr ""
+
+#: src/07_README.md:17
+msgid ""
+"Any repetition in the transcriber can use `$i`, or `$e`, or both within the "
+"same repetition.\n"
+"So a transcriber could be `$(let $i = $e;)+`; or `let product = $($e)*+`"
+msgstr ""
+
+#: src/07_README.md:20
+msgid "## One Metavariable Each, For Two Repetitions"
+msgstr ""
+
+#: src/07_README.md:22
+msgid ""
+"Alternatively, you could specify two different repetitions, each containing "
+"their\n"
+"own metavariable. For example, this program will construct two vecs."
+msgstr ""
+
+#: src/07_README.md:25
+msgid ""
+"```rust\n"
+"macro_rules! two_vecs {\n"
+"    ($($vec1:expr),+; $($vec2:expr),+) => {\n"
+"        {\n"
+"            let mut vec1 = Vec::new();\n"
+"            $(vec1.push($vec1);)+\n"
+"            let mut vec2 = Vec::new();\n"
+"            $(vec2.push($vec2);)+\n"
+"\n"
+"            (vec1, vec2)\n"
+"        }\n"
+"    }\n"
+"}\n"
+"\n"
+"# fn main() {\n"
+"    let vecs = two_vecs!(1, 2, 3; 'a', 'b');\n"
+"# }\n"
+"```"
+msgstr ""
+
+#: src/07_README.md:44
+msgid ""
+"Importantly, with the above example, you have to be careful about using "
+"`$vec1`\n"
+"and `$vec2` in the same repetition within the transcriber. It is a compiler\n"
+"error to use two metavariables captured a different number of times in the "
+"same\n"
+"repetition."
+msgstr ""
+
+#: src/07_README.md:49
+msgid ""
+"To quote [the "
+"reference](https://doc.rust-lang.org/reference/macros-by-example.html#transcribing):"
+msgstr ""
+
+#: src/07_README.md:51
+msgid ""
+"> Each repetition in the transcriber must contain at least one metavariable "
+"to\n"
+"> decide how many times to expand it. If multiple metavariables appear in "
+"the\n"
+"> same repetition, they must be bound to the same number of fragments. For\n"
+"> instance, `( $( $i:ident ),* ; $( $j:ident ),* ) => (( $( ($i,$j) ),* ))` "
+"must\n"
+"> bind the same number of `$i` fragments as `$j` fragments. This means that "
+"invoking\n"
+"> the macro with `(a, b, c; d, e, f)` is legal and expands to `((a,d), "
+"(b,e), (c,f))`,\n"
+"> but `(a, b, c; d, e)` is illegal because it does not have the same\n"
+"> number."
+msgstr ""
+
+#: src/07_README.md:60
+msgid "## Exercise 7: More Repetition"
+msgstr ""
+
+#: src/07_README.md:62
+msgid ""
+"In this task, you will be creating a `hashmap` macro. It should consist\n"
+"of comma-separated pairs, of the form `literal => expr,`\n"
+"This should construct an empty `HashMap` and `insert` the\n"
+"relevant key-value pairs."
+msgstr ""
+
+#: src/07_README.md:72
+msgid ""
+"```rust,ignore\n"
+"<!-- cmdrun cargo run -- goal 07_more_repetition -->\n"
+"```"
+msgstr ""
+
+#: src/08_README.md:1
+msgid "# Exercise 8: Nested Repetition"
+msgstr ""
+
+#: src/08_README.md:3
+msgid ""
+"In this exercise, you will need to use nested repetition. That's where you\n"
+"write a repetition inside another one, for example, `( $( $( $val:expr ),+ "
+");+ )`\n"
+"would let you specify at least one value, but seperate them with either `;` "
+"and `,`."
+msgstr ""
+
+#: src/08_README.md:7
+msgid ""
+"The only oddity about nested repetition is that you must ensure that you "
+"use\n"
+"metavariables in a context where it's clear you're only referring to one of "
+"them.\n"
+"In other words, the `$val` metavariable in the last paragraph *must* be used "
+"within\n"
+"a nested repetition."
+msgstr ""
+
+#: src/08_README.md:12
+msgid "## Exercise 8: Nested Repetition"
+msgstr ""
+
+#: src/08_README.md:14
+msgid ""
+"In this task, you will be building a macro to load a data structure with\n"
+"an adjacency list from a graph. As a refresher, graphs are data structures\n"
+"that describe how different nodes are connected."
+msgstr ""
+
+#: src/08_README.md:18
+msgid ""
+"Each will be a literal, and you will be specifying, for each node,\n"
+"which nodes it connects to. For example,"
+msgstr ""
+
+#: src/08_README.md:21
+msgid ""
+"```rust,ignore\n"
+"graph!{\n"
+"    1 -> (2, 3, 4, 5);\n"
+"    2 -> (1, 3);\n"
+"    3 -> (2);\n"
+"    4 -> ();\n"
+"    5 -> (1, 2, 3);\n"
+"}\n"
+"```"
+msgstr ""
+
+#: src/08_README.md:31
+msgid ""
+"should get translated into a `Vec` containing the pairs `(1, 2)`, `(1, 3)`, "
+"... `(2, 1)`, ... `(5, 3)`."
+msgstr ""
+
+#: src/08_README.md:38
+msgid ""
+"```rust,ignore\n"
+"<!-- cmdrun cargo run -- goal 08_nested_repetition -->\n"
+"```"
+msgstr ""
+
+#: src/09_README.md:1
+msgid "# Exercise 9: Ambiguity and Ordering"
+msgstr ""
+
+#: src/09_README.md:3
+msgid ""
+"Up until this point, we've mostly been dealing with macros with a single "
+"rule.\n"
+"We saw earlier that macros can require more than one rule, but so far we've "
+"never\n"
+"had ambiguity in which rule should be followed."
+msgstr ""
+
+#: src/09_README.md:7
+msgid ""
+"There are, however, multiple circumstances where rules could have "
+"ambiguity,\n"
+"so it's important to understand how macros deal with that ambiguity."
+msgstr ""
+
+#: src/09_README.md:10
+msgid ""
+"The following is adapted from the [rust documentation on\n"
+"macros](https://doc.rust-lang.org/reference/macros-by-example.html#transcribing):"
+msgstr ""
+
+#: src/09_README.md:13
+msgid ""
+" - When a macro is invoked (i.e. someone writes `my_macro!()`), the "
+"compiler\n"
+"   looks for a macro with that name, and tries each rule in turn.\n"
+" - To try a rule, it reads through each token in the parser in turn. There "
+"are\n"
+"   three possibilities:\n"
+"\n"
+"   1. The token found matches the matcher. In this case, it keeps parsing "
+"the\n"
+"      next token. If there are no tokens left, and the matcher is complete, "
+"then\n"
+"      the rule matches.\n"
+"   2. The token found does not match the matcher. In this case, Rust tries "
+"the\n"
+"      next rule. If there are no rules left, an error is raised as the "
+"macro\n"
+"      cannot be expanded.\n"
+"   3. The rule is ambiguous. In other words, it's not clear from *just this\n"
+"      token* what to do. If this happens, this is an error.\n"
+"\n"
+" - If it finds a rule that matches the tokens inside the brackets; it "
+"starts\n"
+"   transcribing. *Once a match is found, no more rules are examined*."
+msgstr ""
+
+#: src/09_README.md:30
+msgid "Let's have a look at some examples:"
+msgstr ""
+
+#: src/09_README.md:32
+msgid ""
+"```rust,ignore\n"
+"macro_rules! ambiguity {\n"
+"    ($($i:ident)* $j:ident) => { };\n"
+"}\n"
+"\n"
+"# fn main() {\n"
+"ambiguity!(error);\n"
+"# }\n"
+"```"
+msgstr ""
+
+#: src/09_README.md:42
+msgid ""
+"This example fails because Rust is not able to determine what `$j` should be "
+"just by looking at\n"
+"the current token. If Rust could look forward, it would see that `$j` must "
+"be followed by a `)`,\n"
+"but it cannot, so it causes an error."
+msgstr ""
+
+#: src/09_README.md:46
+msgid ""
+"```rust\n"
+"macro_rules! ordering {\n"
+"    ($j:expr) => { \"This was an expression\" };\n"
+"    ($j:literal) => { \"This was a literal\" };\n"
+"}\n"
+"\n"
+"# fn main() {\n"
+"let expr1 = ordering!('a');  // => \"This was an expression\".\n"
+"let expr1 = ordering!(3 + 5);  // => \"This was an expression\".\n"
+"# }\n"
+"```"
+msgstr ""
+
+#: src/09_README.md:58
+msgid ""
+"This example demonstrates an example where Rust macros can behave strangely "
+"due to\n"
+"ordering rules: even though `literal` is a much stricter condition than "
+"`expr`,\n"
+"because `literal`s are `expr`s, the first rule will always match."
+msgstr ""
+
+#: src/09_README.md:62
+msgid "## Exercise 9: Ambiguity and Ordering"
+msgstr ""
+
+#: src/09_README.md:64
+msgid ""
+"This task is a little bit different to previous tasks: we have given you\n"
+"a partially functional macro already, along with some invocations of that "
+"macro."
+msgstr ""
+
+#: src/09_README.md:67
+msgid ""
+"You should adjust the macro's rules and syntax to make sure that you\n"
+"achieve the correct behaviour without any ambiguity."
+msgstr ""
+
+#: src/09_README.md:70
+msgid ""
+" - `sum!()` should sum together two or more expressions together.\n"
+" - `get_number_type!()` should determine what sort of Rust syntax is being "
+"used:\n"
+"    a positive literal, a negative literal, a block, or an expression."
+msgstr ""
+
+#: src/09_README.md:79
+msgid ""
+"```rust,ignore\n"
+"<!-- cmdrun cargo run -- goal 09_ambiguity_and_ordering -->\n"
+"```"
+msgstr ""
+
+#: src/10_README.md:1
+msgid "# Exercise 10: Macros Calling Macros"
+msgstr ""
+
+#: src/10_README.md:3
+msgid ""
+"We briefly mentioned in a previous exercise that macros are able to call\n"
+"other macros. In this exercise we will look at a brief example of that.\n"
+"Before we do, there are three small notes we should mention."
+msgstr ""
+
+#: src/10_README.md:7
+msgid "## Useful built-in macros"
+msgstr ""
+
+#: src/10_README.md:9
+msgid ""
+"There are two useful macros which the standard library provides - "
+"`stringify!()`\n"
+"and `concat!()`. Both of them produce static string slices, made up of "
+"tokens."
+msgstr ""
+
+#: src/10_README.md:12
+msgid ""
+"The `stringify!` macro takes tokens and turns them into a `&str` that\n"
+"textually represents what those tokens are. For example, `stringify!(1 + "
+"1)`\n"
+"will become `\"1 + 1\"`."
+msgstr ""
+
+#: src/10_README.md:16
+msgid ""
+"The `concat!` macro takes a comma-separated list of literals, and creates a\n"
+"`&str` which concatenates them. For example, `concat!(\"test\", true, 99)` "
+"becomes\n"
+"`\"testtrue99\"`."
+msgstr ""
+
+#: src/10_README.md:20
+msgid ""
+"It's useful to know that if either of these have a macro in their "
+"parameter,\n"
+"(i.e. `stringify!(test!())`), the internal macro will be expanded first.\n"
+"So, if `test!()` expanded to `1 + 1`, your string would be `\"1 + 1\"`, not "
+"\n"
+"`\"test!()\"`."
+msgstr ""
+
+#: src/10_README.md:25
+msgid "## The `tt` fragment specifier"
+msgstr ""
+
+#: src/10_README.md:27
+msgid ""
+"An important macro specifier which we have not, as of yet, discussed,\n"
+"is the `tt` macro. This captures a \"Token Tree\", which is any token,\n"
+"or a group of tokens inside brackets. This is the most flexible\n"
+"fragment specifier, because it imposes no meaning on what the captured\n"
+"tokens might be. For example:"
+msgstr ""
+
+#: src/10_README.md:33
+msgid ""
+"``` rust\n"
+"macro_rules! stringify_number {\n"
+"    (one) => {\"1\"};\n"
+"    (two) => {\"2\"};\n"
+"    ($tokens:tt) => { stringify!($tokens)};\n"
+"}\n"
+"\n"
+"# fn main() {\n"
+"stringify_number!(one); // is \"1\"\n"
+"stringify_number!(while); // is \"while\"\n"
+"stringify_number!(bing_bang_boom); // is \"bing_bang_boom\"\n"
+"# }\n"
+"```"
+msgstr ""
+
+#: src/10_README.md:47
+msgid ""
+"It's really important to keep in mind with `tt` macros that you **must**\n"
+"ensure that anything after them can be unambiguously parsed."
+msgstr ""
+
+#: src/10_README.md:50
+msgid ""
+"In other words, the metavariable `$($thing:tt)*` (ending with `*`, `+` OR "
+"`?`) *must*\n"
+"be the last fragment in the parser. Since anything can be a token tree, Rust "
+"could\n"
+"not know what to accept after that parser."
+msgstr ""
+
+#: src/10_README.md:54
+msgid ""
+"To avoid this issue, you can either match a single `tt`, and make the user "
+"wrap multiple tokens\n"
+"inside brackets, or you can specify a delimiter for your match (i.e. "
+"`$($thing:tt),+`, since\n"
+"two token trees not separated by a `,` could not match)."
+msgstr ""
+
+#: src/10_README.md:58
+msgid "## Restrictions on \"Forwarding Macros\""
+msgstr ""
+
+#: src/10_README.md:60
+msgid ""
+"There is one important restriction when calling a macro using another macro."
+msgstr ""
+
+#: src/10_README.md:62
+msgid ""
+"When forwarding a matched fragment to another macro-by-example, matchers in "
+"the\n"
+"second macro will be passed an\n"
+"[AST](https://en.wikipedia.org/wiki/Abstract_syntax_tree) of the fragment "
+"type,\n"
+"which cannot be matched on except as a fragment of that type. The second "
+"macro\n"
+"can't use literal tokens to match the fragments in the matcher, only a "
+"fragment\n"
+"specifier of the same type. The `ident`, `lifetime`, and `tt` fragment types "
+"are\n"
+"an exception, and *can* be matched by literal tokens. The following "
+"illustrates\n"
+"this restriction:"
+msgstr ""
+
+#: src/10_README.md:71
+msgid ""
+"```rust,ignore\n"
+"macro_rules! foo {\n"
+"    ($l:expr) => { bar!($l); }\n"
+"// ERROR:               ^^ no rules expected this token in macro call\n"
+"}\n"
+"\n"
+"macro_rules! bar {\n"
+"    (3) => {}\n"
+"}\n"
+"\n"
+"# fn main() {\n"
+"foo!(3);\n"
+"# }\n"
+"```"
+msgstr ""
+
+#: src/10_README.md:86
+msgid ""
+"The following illustrates how tokens can be directly matched after matching "
+"a `tt` fragment:"
+msgstr ""
+
+#: src/10_README.md:89
+msgid ""
+"```rust\n"
+"// compiles OK\n"
+"macro_rules! foo {\n"
+"    ($l:tt) => { bar!($l); }\n"
+"}\n"
+"\n"
+"macro_rules! bar {\n"
+"    (3) => {}\n"
+"}\n"
+"\n"
+"# fn main() {\n"
+"foo!(3);\n"
+"# }\n"
+"```"
+msgstr ""
+
+#: src/10_README.md:104
+msgid "## Exercise 10: Macros Calling Macros"
+msgstr ""
+
+#: src/10_README.md:106
+msgid ""
+"In this exercise, you have already been provided with a macro called "
+"`digit`, which\n"
+"maps the identifiers `zero` through `nine` to a `&str` with their numeric "
+"value."
+msgstr ""
+
+#: src/10_README.md:109
+msgid ""
+"Your task is to write a macro called `number!()` which takes at least one of "
+"the identifiers `zero`\n"
+"through `nine`, and converts them to a string containing numbers."
+msgstr ""
+
+#: src/10_README.md:112
+msgid "For example, `number!(one two three)` should expand to `\"123\"`."
+msgstr ""
+
+#: src/10_README.md:114
+msgid ""
+"**Note:** previously exercise 10 was about making a hashmap. The exercise "
+"has changed, but the old \n"
+"code is still available in the `archive/` directory. It will be removed on "
+"the next update of this book."
+msgstr ""
+
+#: src/11_README.md:1
+msgid "# Exercise 11: Macro Recursion"
+msgstr ""
+
+#: src/11_README.md:3
+msgid ""
+"This exercise is a sort of culmination of everything you've learned so far "
+"about macros."
+msgstr ""
+
+#: src/11_README.md:5
+msgid ""
+"To complete it, you'll need to note one important fact: macros can recurse "
+"into themselves."
+msgstr ""
+
+#: src/11_README.md:7
+msgid "This allows very powerful expansions. As a simple example:"
+msgstr ""
+
+#: src/11_README.md:9
+msgid ""
+"``` rust\n"
+"\n"
+"enum LinkedList {\n"
+"    Node(i32, Box<LinkedList>),\n"
+"    Empty\n"
+"}\n"
+"\n"
+"macro_rules! linked_list {\n"
+"    () => {\n"
+"        LinkedList::Empty\n"
+"    };\n"
+"    ($expr:expr $(, $exprs:expr)*) => {\n"
+"        LinkedList::Node($expr, Box::new(linked_list!($($exprs),*)))\n"
+"    }\n"
+"}\n"
+"\n"
+"fn main() {\n"
+"    let my_list = linked_list!(3, 4, 5);\n"
+"}\n"
+"```"
+msgstr ""
+
+#: src/11_README.md:30
+msgid ""
+"The above example is very typical. The first rule is the \"base case\": an "
+"empty\n"
+"list of tokens implies an empty linked list."
+msgstr ""
+
+#: src/11_README.md:33
+msgid ""
+"The second rule always matches one expression first (`expr`). This allows "
+"us\n"
+"to refer to it on its own, in this case to create the `Node`. The rest of\n"
+"the expressions (`exprs`) are stored in a repetition, and all we'll do with\n"
+"them is recurse into `linked_list!()`. If there's no expressions left,\n"
+"that call to `linked_list!()` will give back `Empty`, otherwise it'll\n"
+"repeat the same process."
+msgstr ""
+
+#: src/11_README.md:40
+msgid ""
+"While macro recursion is incredibly powerful, it is also slow. As a result,\n"
+"there is a limit to the amount of recursion you are allowed to do.\n"
+"In rustc, the limit is `128`, but you can configure it with\n"
+"`#![recursion_limit = \"256\"]` as a crate-level attribute."
+msgstr ""
+
+#: src/11_README.md:46
+msgid "## Exercise 11: Currying"
+msgstr ""
+
+#: src/11_README.md:48
+msgid ""
+"Before you complete the exercise, let's briefly discuss a concept called "
+"\"currying\".\n"
+"If you're already familiar with the concept, perhaps from your own "
+"experience of\n"
+"functional programming, you can skip the next two paragraphs."
+msgstr ""
+
+#: src/11_README.md:52
+msgid ""
+"In most imperative languages, the syntax to call a function with multiple "
+"arguments\n"
+"is `function(arg1, arg2, arg3)`. If you do not provide all the arguments, "
+"that is\n"
+"an error. In many functional languages, however, the syntax for function "
+"calls is\n"
+"more akin to `function(arg1)(arg2)(arg3)`. The advantage of this notation is "
+"that\n"
+"if you specify less than the required number of arguments, it's not an "
+"error:\n"
+"you get back a function that takes the rest of the arguments. A function "
+"that behaves\n"
+"this way is said to be \"curried\" (named after Haskell Curry, a famous "
+"mathematician)."
+msgstr ""
+
+#: src/11_README.md:60
+msgid ""
+"A good example of this is a curried `add` function. In regular Rust, we'd "
+"say `add` is\n"
+"`move |a, b| a + b`. If we curried that function, we'd instead have `move "
+"|a| move |b| a + b`.\n"
+"What this means is that we can write `let add_1 = add(1);`, and we now have "
+"a function\n"
+"which will add 1 to anything."
+msgstr ""
+
+#: src/11_README.md:65
+msgid ""
+"In this exercise, you will build a macro which helps you understand "
+"currying,\n"
+"and build a curried function in Rust. The syntax for this macro will be\n"
+"`curry!((a: i32) => (b: i32) => _, {a + b})`. Each pair of `ident: ty` is "
+"an\n"
+"argument, and the last `_` indicates that the compiler will infer the "
+"return\n"
+"type. The block provided last is, of course, the computation we want to do "
+"after\n"
+"receiving all the arguments."
+msgstr ""
+
+#: src/11_README.md:72
+msgid ""
+"Each step of the currying process, you should call the macro "
+"`print_curried_argument`.\n"
+"This should print out the value that you have been provided as an argument."
+msgstr ""
+
+#: src/12_README.md:1
+msgid "# Hygiene"
+msgstr ""
+
+#: src/12_README.md:3
+msgid ""
+"To quote [the "
+"reference](https://doc.rust-lang.org/reference/macros-by-example.html#hygiene):"
+msgstr ""
+
+#: src/12_README.md:5
+msgid ""
+"> By default, all identifiers referred to in a macro are expanded as-is, and "
+"are\n"
+"> looked up at the macro's invocation site. This can lead to issues if a "
+"macro\n"
+"> refers to an item (i.e. function/struct/enum/etc.) or macro which isn't in "
+"scope at the invocation site. To\n"
+"> alleviate this, the `$crate` metavariable can be used at the start of a "
+"path to\n"
+"> force lookup to occur inside the crate defining the macro."
+msgstr ""
+
+#: src/12_README.md:11
+msgid ""
+"Here is an example to illustrate (again, taken from the reference linked "
+"above):"
+msgstr ""
+
+#: src/12_README.md:13
+msgid ""
+"```rust,ignore\n"
+"// Definitions in the `helper_macro` crate.\n"
+"#[macro_export]\n"
+"macro_rules! helped {\n"
+"    /*\n"
+"    () => { helper!() }\n"
+"         // ^^^^^^ This might lead to an error due to 'helper' not being in "
+"scope.\n"
+"    */\n"
+"    () => { $crate::helper!() }\n"
+"}\n"
+"\n"
+"#[macro_export]\n"
+"macro_rules! helper {\n"
+"    () => { () }\n"
+"}\n"
+"\n"
+"// Usage in another crate.\n"
+"// Note that `helper_macro::helper` is not imported!\n"
+"\n"
+"use helper_macro::helped;\n"
+"\n"
+"fn unit() {\n"
+"    helped!();\n"
+"}\n"
+"```"
+msgstr ""
+
+#: src/12_README.md:39
+msgid "## Disclaimer"
+msgstr ""
+
+#: src/12_README.md:41
+msgid ""
+"(Based on the disclaimer for the brilliant\n"
+"[cargo-expand](https://github.com/dtolnay/cargo-expand/))"
+msgstr ""
+
+#: src/12_README.md:44
+msgid ""
+"Be aware that macro expansion to text is a lossy process. That means that "
+"the\n"
+"expanded code we show in these kata should be used as a debugging aid only.\n"
+"There should be no expectation that the expanded code can be compiled\n"
+"successfully, nor that if it compiles then it behaves the same as the "
+"original\n"
+"code. In these kata, we try to avoid these issues as far as possible."
+msgstr ""
+
+#: src/12_README.md:50
+msgid ""
+"For instance, `answer = 3` when compiled ordinarily by Rust,\n"
+"but the expanded code, when compiled, would set `answer = 4`."
+msgstr ""
+
+#: src/12_README.md:53
+msgid ""
+"```rust\n"
+"fn main() {\n"
+"    let x = 1;\n"
+"\n"
+"    macro_rules! first_x {\n"
+"        () => { x }\n"
+"    }\n"
+"\n"
+"    let x = 2;\n"
+"\n"
+"    let answer = x + first_x!();\n"
+"}\n"
+"\n"
+"```"
+msgstr ""
+
+#: src/12_README.md:68
+msgid ""
+"Refer to [The Little Book Of Rust "
+"Macros](https://veykril.github.io/tlborm/decl-macros/minutiae/hygiene.html)\n"
+"for more on the considerations around macro hygiene."
+msgstr ""
+
+#: src/12_README.md:71
+msgid "## Exercise 12"
+msgstr ""
+
+#: src/12_README.md:73
+msgid ""
+"Exercise 12 consists of a file containing multiple modules. Fix the code so\n"
+"that the macro works correctly in all invocations."
+msgstr ""
+
+#: src/12_README.md:76
+msgid "Note that you will need to use the `$crate` metavariable."
+msgstr ""
+
+#: src/13_README.md:1
+msgid ""
+"The subject of scoping, importing and exporting are well covered\n"
+"by the [Rust "
+"Reference](https://doc.rust-lang.org/reference/macros-by-example.html#scoping-exporting-and-importing)."
+msgstr ""
+
+#: src/13_README.md:4
+msgid ""
+"While practical examples of these may be useful, this first verison of "
+"`macrokata` does not\n"
+"include exercises for them. If you plan on using macros in a larger project, "
+"we suggest reading\n"
+"the above reference."
+msgstr ""
+
+#: src/99_README.md:1
+msgid "# Extra Reading"
+msgstr ""
+
+#: src/99_README.md:3
+msgid ""
+"There are two excellent resources for further reading on Rust's\n"
+"macro system:"
+msgstr ""
+
+#: src/99_README.md:6
+msgid ""
+" - [The Rust Reference](https://doc.rust-lang.org/reference/macros.html),\n"
+" - [The Little Book of Rust Macros](https://veykril.github.io/tlborm/) "
+"(note\n"
+"   that an older version exists, so make sure you're reading this up-to-date "
+"one!)"
+msgstr ""
+

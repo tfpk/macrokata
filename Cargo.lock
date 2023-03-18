@@ -130,7 +130,7 @@ checksum = "fc7fcc620a3bff7cdd7a365be3376c97191aeaccc2a603e600951e452615bf89"
 
 [[package]]
 name = "macrokata"
-version = "0.3.0"
+version = "0.3.1"
 dependencies = [
  "atty",
  "clap",
