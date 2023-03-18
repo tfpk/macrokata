@@ -23,23 +23,23 @@ runs:
     # The --locked flag is important for reproducible builds. It also
     # avoids breakage due to skews between mdbook and mdbook-svgbob.
     - name: Install mdbook
-      run: cargo install mdbook --locked --version 0.4.27
+      run: which mdbook || cargo install mdbook --locked --version 0.4.27
       shell: bash
 
     - name: Install mdbook-keeper
-      run: cargo install mdbook-keeper --locked --version 0.2.4
+      run: which mdbook-keeper || cargo install mdbook-keeper --locked --version 0.2.4
       shell: bash
 
     - name: Install mdbook-cmdrun
-      run: cargo install mdbook-cmdrun --locked --version 0.5.0
+      run: which mdbook-cmdrun || cargo install mdbook-cmdrun --locked --version 0.5.0
       shell: bash
 
     - name: Install cargo-expand
-      run: cargo install cargo-expand
+      run: which cargo-expand || cargo install cargo-expand
       shell: bash
 
     - name: Install i18n-helpers
-      run: cargo install --git https://github.com/google/comprehensive-rust i18n-helpers
+      run: which i18n-helpers || cargo install --git https://github.com/google/comprehensive-rust i18n-helpers
       shell: bash
 
     - name: Build macrokata
