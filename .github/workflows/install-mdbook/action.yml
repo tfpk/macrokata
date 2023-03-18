@@ -39,7 +39,7 @@ runs:
       shell: bash
 
     - name: Install i18n-helpers
-      run: which i18n-helpers || cargo install --git https://github.com/google/comprehensive-rust i18n-helpers
+      run: which mdbook-gettext || cargo install --git https://github.com/google/comprehensive-rust i18n-helpers
       shell: bash
 
     - name: Build macrokata
