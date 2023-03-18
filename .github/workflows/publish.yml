@@ -34,9 +34,6 @@ jobs:
       - name: Setup Rust cache
         uses: ./.github/workflows/setup-rust-cache
 
-      - name: Install mdbook
-        uses: ./.github/workflows/install-mdbook
-
       - name: Build course in English
         run: mdbook build -d book
 
