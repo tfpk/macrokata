@@ -25,24 +25,29 @@ jobs:
 
       - name: Generate po/messages.pot
         run: mdbook build -d po
+        working-directory: ./book
         env:
           MDBOOK_OUTPUT: '{"xgettext": {"pot-file": "messages.pot"}}'
 
       - name: Test messages.pot
+        working-directory: ./book
         run: msgfmt --statistics -o /dev/null po/messages.pot
 
       - name: Expand includes without translation
+        working-directory: ./book
         run: mdbook build -d expanded
         env:
           MDBOOK_OUTPUT: '{"markdown": {}}'
 
       - name: Expand includes with no-op translation
+        working-directory: ./book
         run: mdbook build -d no-op
         env:
           MDBOOK_OUTPUT: '{"markdown": {}}'
           MDBOOK_PREPROCESSOR__GETTEXT__PO_FILE: po/messages.pot
 
       - name: Compare no translation to no-op translation
+        working-directory: ./book
         run: diff --color=always --unified --recursive expanded no-op
 
   find-translations:
@@ -54,6 +59,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Find translations
+        working-directory: ./book
         id: find-translations
         shell: python
         run: |
@@ -85,34 +91,16 @@ jobs:
         uses: ./.github/workflows/install-mdbook
 
       - name: Test ${{ matrix.language }} translation
+        working-directory: ./book
         run: msgfmt --statistics -o /dev/null po/${{ matrix.language }}.po
 
       - name: Build course with ${{ matrix.language }} translation
+        working-directory: ./book
         run: mdbook build
 
       - name: Upload ${{ matrix.language }} translation
+        working-directory: ./book
         uses: actions/upload-artifact@v3
         with:
-          name: comprehensive-rust-${{ matrix.language }}
-          path: book/
-
-      - name: Test code snippets with ${{ matrix.language }} translation
-        run: mdbook test
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Deploy GitHub Pages
-      run: |
-        cd book
-        mdbook build
-        git worktree add gh-pages
-        git config user.name "Deploy from CI"
-        git config user.email ""
-        cd gh-pages
-        # Delete the ref to avoid keeping history.
-        git update-ref -d refs/heads/gh-pages
-        rm -rf *
-        mv ../book/* .
-        git add .
-        git commit -m "Deploy $GITHUB_SHA to gh-pages"
-        git push --force --set-upstream origin gh-pages
+          name: macrokata-${{ matrix.language }}
+          path: book/book/
