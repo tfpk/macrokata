@@ -19,7 +19,7 @@ concurrency:
 env:
   CARGO_TERM_COLOR: always
   # Update the language picker in index.hbs to link new languages.
-  LANGUAGES: da pt-BR ko
+  LANGUAGES: zh
 
 jobs:
   publish:
@@ -45,7 +45,7 @@ jobs:
           for po_lang in ${{ env.LANGUAGES }}; do
               echo "::group::Building $po_lang translation"
               MDBOOK_BOOK__LANGUAGE=$po_lang \
-              MDBOOK_OUTPUT__HTML__SITE_URL=/comprehensive-rust/$po_lang/ \
+              MDBOOK_OUTPUT__HTML__SITE_URL=/macrokata/$po_lang/ \
               mdbook build -d book/$po_lang
               echo "::endgroup::"
           done
