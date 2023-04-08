@@ -21,8 +21,7 @@ pub fn test(exercise: String) -> Result<(), Box<dyn Error>> {
         .output()
         .unwrap();
 
-    let stderr_is_empty = main_output.stderr.is_empty();
-    if !stderr_is_empty || !main_output.status.success() {
+    if !main_output.status.success() {
         println!("Got some errors when expanding the macro:");
         println!();
         io::stderr().write_all(&main_output.stderr)?;
