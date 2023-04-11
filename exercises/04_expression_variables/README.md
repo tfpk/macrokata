@@ -18,10 +18,28 @@ It's also worth mentioning the fragment specifier `stmt`, which is similar to
 
 # Macros and the Precedence of Operators
 
-Macros do not affect the order of operations. If the expression `3 * math!(4,
-plus, 2)` expands to `3 * 4 + 2`, you might expect Rust to interpret it as
-`3 * (4 + 2)`. Since Rust removes the macro before evaluating mathematical
-operations though, Rust just sees `3 * 4 + 2`, which it evaluates as `14`.
+Macros *do* affect the order of operations. The expression `3 * math!(4,
+plus, 2)` expands to `3 * (4 + 2)`. This is not clearly outlined anywhere
+(that I can find), and a previous version of this guide incorrectly stated
+the opposite.
+
+You can check this behaviour by seeing the following:
+
+```rust
+macro_rules! math {
+    () => { 3 + 4 }
+}
+
+fn main() {
+    let math_result = 2 * math!();
+   
+    // 2 * (3 + 4) == 14
+    assert_eq!(math_result, 14);
+    
+    // (2 * 3) + 4 == 10
+    assert_ne!(math_result, 10);
+}
+```
 
 # "Follow-set Ambiguity Rules"
 
