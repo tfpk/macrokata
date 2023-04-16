@@ -40,5 +40,5 @@ macro_rules! digit {
 fn main() {
     let my_number = number!(nine three seven two zero).parse::<u32>().unwrap();
     let my_other_number = number!(one two four six eight zero).parse::<u32>().unwrap();
-    println!("{}", my_number + my_other_number);
+    println!("{}", my_number + my_other_number); // = 218400
 }
