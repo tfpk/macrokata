@@ -2,7 +2,7 @@
 
 In this exercise, you will need to use nested repetition. That's where you
 write a repetition inside another one, for example, `( $( $( $val:expr ),+ );+ )`
-would let you specify at least one value, but seperate them with either `;` and `,`.
+would let you specify at least one value, but separate them with either `;` and `,`.
 
 The only oddity about nested repetition is that you must ensure that you use
 metavariables in a context where it's clear you're only referring to one of them.

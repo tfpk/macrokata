@@ -64,7 +64,7 @@ To break that down:
  - `$(` means that we're starting a repetition.
  - Inside the brackets, `the $my_literal:literal` is the pattern we're matching. We'll match the exact text "the", and then a literal token.
  - The `)` means that we're done describing the pattern to match.
- - The `and` is optional, but it is the "separator": a token you can use to seperate multiple repetitions. Commonly it's `,` to comma-separate things.
+ - The `and` is optional, but it is the "separator": a token you can use to separate multiple repetitions. Commonly it's `,` to comma-separate things.
  - Here, we use `+`, which means the repetition must happen at least once. `*` would have worked just as well if we were okay with an empty `Vec`.
 
 What's now left is to use the matched values. To do this, the rule would be something like:
