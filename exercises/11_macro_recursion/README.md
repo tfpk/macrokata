@@ -70,5 +70,6 @@ type. The block provided last is, of course, the computation we want to do after
 receiving all the arguments.
 
 Each step of the currying process, you should call the macro `print_curried_argument`.
-This should print out the value that you have been provided as an argument.
+This takes in a value (which, for the purposes of the exercise, you can assume will 
+always be `Copy`). It will print out the value that you have been provided as an argument.
 
