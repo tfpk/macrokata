@@ -36,7 +36,16 @@ fn unit() {
 }
 ```
 
-## Disclaimer
+In other words, this means that a macro needs to have all the functions/structs/macros it uses in scope
+at its *call site*, not at the place where it is defined. This is fine if the macro is used within a single file, but if a
+macro is exported, then it makes things complicated.
+
+The `$crate` metavariable lets you refer to things that are in the crate the macro was defined in (as opposed to the 
+crate the macro was called in). If the macro was defined in crate `foo`, and used in crate `bar`, then a reference
+to a struct `Widget` like: `Widget::new()` is creating a new `bar::Widget` (and if one doesn't exist, you'll get an error).
+If you called `$crate::Widget::new()`, then you're always talking about `foo::Widget`, no matter what crate you're in.
+
+## A footnote on how expanding macros into text is misleading
 
 (Based on the disclaimer for the brilliant
 [cargo-expand](https://github.com/dtolnay/cargo-expand/))
