@@ -58,7 +58,7 @@ you get back a function that takes the rest of the arguments. A function that be
 this way is said to be "curried" (named after Haskell Curry, a famous mathematician).
 
 A good example of this is a curried `add` function. In regular Rust, we'd say `add` is
-`move |a, b| a + b`. If we curried that function, we'd instead have `move |a| move |b| a + b`.
+`|a, b| a + b`. If we curried that function, we'd instead have `|a| move |b| a + b`.
 What this means is that we can write `let add_1 = add(1);`, and we now have a function
 which will add 1 to anything.
 
