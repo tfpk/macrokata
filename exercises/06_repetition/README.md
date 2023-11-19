@@ -70,7 +70,7 @@ To break that down:
 What's now left is to use the matched values. To do this, the rule would be something like:
 
 ```rust,ignore
- $(the $my_literal:literal)and+ => {
+($(the $my_literal:literal)and+) => {
     {
         let mut my_vec = Vec::new();
         $(my_vec.push($my_literal));+;
