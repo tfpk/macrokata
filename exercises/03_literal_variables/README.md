@@ -65,7 +65,7 @@ compilation process, as if you had written the expanded code.
 
 ## Why do these examples avoid using macros?
 
-The example above uses the `println!` macro inside the `print_me`
+The example above uses the `println!` macro inside the `do_thing`
 macro. Rust is totally fine with this! However, `macrokata` tries
 to avoid (as much as possible) using macros we didn't define inside
 the main function. The reason for this is that, if we did use `println!`
