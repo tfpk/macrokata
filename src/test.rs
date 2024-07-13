@@ -38,6 +38,12 @@ pub fn test(exercise: String) -> Result<(), Box<dyn Error>> {
         .output()
         .unwrap();
 
+    if !&main_output.status.success() {
+        println!("macrokata has encountered the following errors when attempting to expand an exercise.");
+        io::stderr().write_all(&main_output.stderr)?;
+        return Err("macrokata could not expand macros".into());
+    }
+
     println!();
     println!("This is the expansion you produced:");
     println!();
