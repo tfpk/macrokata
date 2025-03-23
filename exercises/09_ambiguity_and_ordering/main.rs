@@ -1,3 +1,4 @@
+#[allow(dead_code)]
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 /// This enum should represent what code the user wrote exactly.
@@ -24,29 +25,29 @@ impl NumberType {
 
 // Sum together at least two expressions.
 macro_rules! sum {
-    ($($expr:expr),+ , $lastexpr:expr) => {
-        $($expr + )+ $lastexpr
-    }
+    ($first:expr $(, $expr:expr)*) => {
+         $first$(+ $expr)*
+    };
 }
 
 macro_rules! get_number_type {
-    ( $e:expr ) => {
-        NumberType::UnknownBecauseExpr($e)
-    };
-    ( $block:block ) => {
-        NumberType::UnknownBecauseBlock($block)
+    (-$negative:literal ) => {
+        NumberType::NegativeNumber(-$negative)
     };
     ( $positive:literal ) => {
         NumberType::PositiveNumber($positive)
     };
-    ( -$negative:literal ) => {
-        NumberType::NegativeNumber(-$negative)
+    ( $block:block ) => {
+        NumberType::UnknownBecauseBlock($block)
+    };
+    ( $e:expr ) => {
+        NumberType::UnknownBecauseExpr($e)
     };
 }
 
 ////////// DO NOT CHANGE BELOW HERE /////////
 fn main() {
-    // PositiveNumber
+    // // PositiveNumber
     get_number_type!(5).show();
 
     // NegativeNumber

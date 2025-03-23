@@ -1,7 +1,22 @@
 macro_rules! coord {
-    ($x:expr, $y:expr) => {};
-    ($x:expr, $y:expr, $z:expr) => {};
-    ($x:expr, $y:expr, $z:expr, $t:expr) => {};
+    ($x:expr, $y:expr) => {
+        $crate::Coordinate { x: $x, y: $y }
+    };
+    ($x:expr, $y:expr, $z:expr) => {
+        $crate::third_dimension::Coordinate {
+            x: $x,
+            y: $y,
+            z: $z,
+        }
+    };
+    ($x:expr, $y:expr, $z:expr, $t:expr) => {
+        $crate::fourth_dimension::Coordinate {
+            x: $x,
+            y: $y,
+            z: $z,
+            t: $t,
+        }
+    };
 }
 
 ////////// DO NOT CHANGE BELOW HERE /////////

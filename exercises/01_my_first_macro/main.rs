@@ -6,7 +6,11 @@ fn show_output() {
 ////////// DO NOT CHANGE ABOVE HERE /////////
 
 // TODO: create `show_output!()` macro.
-
+macro_rules! show_output {
+    () => {
+        show_output()
+    };
+}
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 fn main() {

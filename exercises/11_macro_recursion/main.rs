@@ -1,5 +1,33 @@
+// #![recursion_limit = "256"]
 // TODO: Create the `curry!()` macro.
+macro_rules! curry {
+    (
+        ($ident_arg:ident:$ident_type:ty)=>_,
+        $block: block
+    ) => {
+        move |$ident_arg: $ident_type| {
+            print_curried_argument($ident_arg);
+            $block
+        }
+    };
+    (
+        ($ident_arg:ident:$ident_type:ty)=>
+        $(
+            ($ident_args:ident:$ident_types:ty) =>
 
+        )*
+        _,
+        $block: block
+    ) => {
+        move |$ident_arg: $ident_type| {
+            print_curried_argument($ident_arg);
+            curry!(
+                $(($ident_args:$ident_types)=>)* _,
+                $block
+            )
+        }
+    };
+}
 ////////// DO NOT CHANGE BELOW HERE /////////
 
 fn print_numbers(nums: &Vec<i32>) {
@@ -16,6 +44,7 @@ fn print_curried_argument(val: impl std::fmt::Debug) {
 
 fn main() {
     println!("=== defining functions ===");
+
     let is_between = curry!((min: i32) => (max: i32) => (item: &i32) => _, {
         min < *item && *item < max
     });
