@@ -1,6 +1,5 @@
+use crate::diff::diff;
 use glob::glob;
-use imara_diff::intern::InternedInput;
-use imara_diff::{diff, Algorithm, UnifiedDiffBuilder};
 use std::path::PathBuf;
 use std::process::{Command, Output};
 
@@ -72,12 +71,7 @@ pub fn check(exercise: &str) -> Result<(), CheckError> {
     let exercise_diff = std::fs::read_to_string(exercise_diff_path)
         .map_err(|_| CheckError::DiffFileDoesNotExist)?;
 
-    let input = InternedInput::new::<&str>(exercise_main.as_ref(), exercise_solution.as_ref());
-    let actual_diff = diff(
-        Algorithm::Histogram,
-        &input,
-        UnifiedDiffBuilder::new(&input),
-    );
+    let actual_diff = diff(exercise_main.as_ref(), exercise_solution.as_ref());
 
     if actual_diff == exercise_diff {
         let clippy = run_cargo_command(exercise, "clippy")
