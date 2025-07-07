@@ -1,5 +1,4 @@
-use imara_diff::intern::InternedInput;
-use imara_diff::{diff, Algorithm, UnifiedDiffBuilder};
+use crate::diff::diff;
 use std::error::Error;
 use std::io::{self, Write};
 use std::process::Command;
@@ -59,12 +58,7 @@ pub fn test(exercise: String) -> Result<(), Box<dyn Error>> {
 
     let before = String::from_utf8_lossy(&main_output.stdout);
     let after = String::from_utf8_lossy(&soln_output.stdout);
-    let input = InternedInput::new(before.as_ref(), after.as_ref());
-    let the_diff = diff(
-        Algorithm::Histogram,
-        &input,
-        UnifiedDiffBuilder::new(&input),
-    );
+    let the_diff = diff(before.as_ref(), after.as_ref());
 
     if the_diff.is_empty() {
         println!("\nCongratulations! You solved it.\n");

@@ -2,6 +2,7 @@ use clap::{Parser, Subcommand};
 use std::error::Error;
 
 mod check;
+mod diff;
 mod goal;
 mod test;
 mod update_diff;

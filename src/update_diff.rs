@@ -1,5 +1,4 @@
-use imara_diff::intern::InternedInput;
-use imara_diff::{diff, Algorithm, UnifiedDiffBuilder};
+use crate::diff::diff;
 use std::error::Error;
 use std::path::PathBuf;
 
@@ -28,12 +27,7 @@ pub fn update_diff(exercise: &str) -> Result<(), Box<dyn Error>> {
     let exercise_main = std::fs::read_to_string(exercise_main_path)?;
     let exercise_solution = std::fs::read_to_string(exercise_solution_path)?;
 
-    let input = InternedInput::new::<&str>(exercise_main.as_ref(), exercise_solution.as_ref());
-    let actual_diff = diff(
-        Algorithm::Histogram,
-        &input,
-        UnifiedDiffBuilder::new(&input),
-    );
+    let actual_diff = diff(exercise_main.as_ref(), exercise_solution.as_ref());
 
     let mut file = File::create(exercise_diff_path)?;
     file.write_all(actual_diff.as_bytes())?;
