@@ -3,6 +3,7 @@
 /// This enum should represent what code the user wrote exactly.
 /// Even though to a compiled program there's no difference,
 /// this will let the program tell what sort of code the user wrote.
+#[allow(unused)]
 #[derive(Debug)]
 enum NumberType {
     /// The user wrote a literal, positive number.
